@@ -11,6 +11,7 @@ import {
     mailto,
 } from "./_components/drawing";
 import { Trace } from "./_components/trace";
+import { SheetToggle } from "./_components/sheet-toggle";
 import Link from "next/link";
 
 const people = site.committee.flatMap((g) => g.people);
@@ -129,6 +130,7 @@ export default function Home() {
                         Email us
                         <Arrow />
                     </a>
+                    <SheetToggle />
                 </header>
 
                 <main id="main">

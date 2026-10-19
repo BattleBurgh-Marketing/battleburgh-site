@@ -2,8 +2,8 @@
 
 /* ── The drawing sheet ──────────────────────────────────────────────────── */
 :root {
-  --film: #ecebe6;
-  --film-deep: #e3e2dc;
+  --film: #e4e4e4;
+  --film-deep: #d8d8d8;
   --ink: #151515;
   --ink-2: #44433f;
   --ink-3: #64635e;
@@ -13,6 +13,7 @@
   --red-deep: #a3161f;
   --blue: #2457e6;
   --blue-deep: #1a43b8;
+  --blue-ink: #2457e6; /* blue as small text or icon */
 
   --m: 40px; /* sheet margin that carries the zone markers */
   --pad: 28px;
@@ -21,6 +22,43 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   color-scheme: light;
+}
+
+/* Night sheet: the same drawing in chalk on graphite. Follows the system
+   unless the visitor picks a sheet with the strip's toggle. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --film: #151514;
+    --film-deep: #21211f;
+    --ink: #e8e7e2;
+    --ink-2: #b5b4ad;
+    --ink-3: #8c8b85;
+    --rule: #9a9993;
+    --hatch: #3a3a37;
+    --red: #dc2f39;
+    --red-deep: #a3161f;
+    --blue: #3b6af0;
+    --blue-deep: #1a43b8;
+    --blue-ink: #6b8ff5;
+
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --film: #151514;
+  --film-deep: #21211f;
+  --ink: #e8e7e2;
+  --ink-2: #b5b4ad;
+  --ink-3: #8c8b85;
+  --rule: #9a9993;
+  --hatch: #3a3a37;
+  --red: #dc2f39;
+  --red-deep: #a3161f;
+  --blue: #3b6af0;
+  --blue-deep: #1a43b8;
+  --blue-ink: #6b8ff5;
+
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -244,13 +282,45 @@ h3 {
 .strip-mail {
   background: var(--red);
   color: #fff;
-  margin-left: 8px;
 }
 .strip-mail:hover {
   background: var(--red-deep);
 }
 .strip-mail:hover .arrow {
   transform: translateX(3px);
+}
+
+/* Sheet toggle: a ruled cell holding a half-inked disc. */
+.sheet-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background-color 200ms var(--ease),
+    color 200ms var(--ease);
+}
+.sheet-toggle:hover {
+  background: var(--film-deep);
+  color: var(--blue-ink);
+}
+.sheet-toggle .icon-fill {
+  fill: currentColor;
+  stroke: none;
+  transform-origin: 8px 8px;
+  transition: transform 400ms var(--ease);
+}
+:root[data-theme="dark"] .sheet-toggle .icon-fill {
+  transform: rotate(180deg);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sheet-toggle .icon-fill {
+    transform: rotate(180deg);
+  }
 }
 
 /* ── Zone A · first viewport ───────────────────────────────────────────── */
@@ -836,7 +906,7 @@ h3 {
 }
 .person-linkedin:hover {
   background: var(--film-deep);
-  color: var(--blue);
+  color: var(--blue-ink);
 }
 .icon {
   width: 18px;
@@ -910,7 +980,7 @@ h3 {
   transition: color 200ms var(--ease);
 }
 .footer-links a:hover {
-  color: var(--blue);
+  color: var(--blue-ink);
 }
 .footer-strip {
   grid-column: 1 / -1;
@@ -1003,6 +1073,13 @@ h3 {
   }
   .strip-mark {
     width: 28px;
+  }
+  .strip nav ul {
+    gap: 0;
+  }
+  .sheet-toggle {
+    width: 34px;
+    height: 34px;
   }
   .strip nav a {
     padding: 0 8px;

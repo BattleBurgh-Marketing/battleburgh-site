@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Azeret_Mono, Barlow, Barlow_Condensed } from "next/font/google";
 import { site } from "@/content/site";
+import { sheetScript } from "./_components/sheet-script";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -28,8 +29,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ECEBE6",
-  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#E4E4E4" },
+    { media: "(prefers-color-scheme: dark)", color: "#151514" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -37,7 +41,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en-GB"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: sheetScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );

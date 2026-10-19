@@ -2,8 +2,8 @@
 name: Battleburgh
 description: Edinburgh University's first robot fighting society, drawn as one general-arrangement engineering sheet.
 colors:
-  film: "#ecebe6"
-  film-deep: "#e3e2dc"
+  film: "#e4e4e4"
+  film-deep: "#d8d8d8"
   ink: "#151515"
   ink-2: "#44433f"
   ink-3: "#64635e"
@@ -13,6 +13,7 @@ colors:
   red-deep: "#a3161f"
   blue: "#2457e6"
   blue-deep: "#1a43b8"
+  blue-ink: "#2457e6"
   on-accent: "#ffffff"
 typography:
   display:
@@ -173,7 +174,7 @@ Density is that of a working drawing: many small labelled fields, big uppercase 
 All copy, links, photos and committee entries come from one file, `content/site.ts`; the page renders entirely from it. A photo set to `null` renders as a section-hatched "Photo to add" view, so missing imagery is drawn honestly rather than faked.
 
 **Key Characteristics:**
-- Light drafting-film ground with near-black ink; one 2px frame, everything else 1px hairlines.
+- Light drafting-film ground with near-black ink (a chalk-on-graphite night sheet follows the system or the strip toggle); one 2px frame, everything else 1px hairlines.
 - An 8-column zone grid that the margin numbers literally label.
 - Zone letters A–F in the left margin; balloon letters on view titles match the zone they head.
 - Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.
@@ -196,17 +197,37 @@ Ink and drafting film, with two coding inks used by meaning, never by decoration
 - **Film Shade** (`film-deep`): hover fill for neutral links and cells, empty image ground, scrollbar track.
 - **Drawing Ink** (`ink`): body text, the 2px sheet frame, the 2px title-block top border, balloon outlines, leader lines, photo trace strokes.
 - **Ink Two** (`ink-2`): secondary text: purpose paragraph, mono captions, field labels, specs.
-- **Ink Three** (`ink-3`): tertiary text: zone numbers and letters, placeholder captions. Holds 5:1 on film; it is the lightest colour allowed for text.
+- **Ink Three** (`ink-3`): tertiary text: zone numbers and letters, placeholder captions. Holds 4.7:1 on film; it is the lightest colour allowed for text.
 - **Rule** (`rule`): the 1px hairlines that divide every ruled grid, the strip's bottom edge, skill-chip and person-photo borders.
 - **Hatch** (`hatch`): section-hatching lines, margin zone dividers, field-list dividers, footer link underlines. Never text.
 - **On-Accent White** (`on-accent`): text on red and blue fills only.
+- **Blue Ink** (`blue-ink`): blue used as small text or an icon (footer link hover, profile and sheet-toggle hover). Equals `blue` on the light sheet; lifts on the night sheet so it still reads.
+
+### Night Sheet (dark theme)
+The same drawing in chalk on graphite. Every role keeps its job; only the values change, so components never branch on theme. It follows the system setting until the visitor flips the strip's sheet toggle, which saves the choice in `localStorage` (`sheet`) and sets `data-theme` on `<html>`; an inline script in `<head>` applies it before paint.
+
+| Token | Night value | Note |
+|---|---|---|
+| film | `#151514` | graphite ground |
+| film-deep | `#21211f` | hover fill, empty image ground |
+| ink | `#e8e7e2` | 14.8:1 on film |
+| ink-2 | `#b5b4ad` | 8.8:1 |
+| ink-3 | `#8c8b85` | 5.4:1, still the lightest text |
+| rule | `#9a9993` | hairlines stay a step below ink |
+| hatch | `#3a3a37` | 1.6:1, dividers only |
+| red | `#dc2f39` | lifted for 3.9:1 on film; white on it 4.7:1 |
+| blue | `#3b6af0` | 3.9:1 on film; white on it 4.7:1 |
+| blue-ink | `#6b8ff5` | 6.0:1 for small blue text and icons |
+| red-deep / blue-deep | unchanged | hover fills |
+
+Red and blue as text only ever appear at Title size or larger, where 3:1 is the floor.
 
 ### Named Rules
 **The Coding Ink Rule.** Blue means control/Unibot; red means fighting bots or email. A colour is chosen by what the element belongs to, carried through a single `--tone` / `--tone-deep` pair set by `tone-blue` or `tone-red`. Never pick an accent for variety.
 
 **The Red Email Rule.** Every email action is a solid red fill with white text. There is no outline or ghost email button, and red fills are not used for anything that is not email or a fighting-bot join action. The committee application is an ink action, never red.
 
-**The Hatch Is Not Ink Rule.** Hatch (1.67:1 on film) draws dividers and hatching only; any text uses ink, ink-2 or ink-3.
+**The Hatch Is Not Ink Rule.** Hatch (1.56:1 on film) draws dividers and hatching only; any text uses ink, ink-2 or ink-3.
 
 ## Typography
 
@@ -298,6 +319,9 @@ A field label over hatch-ruled rows (7px vertical padding), or over inline skill
 ### Profile Link
 A committee member's LinkedIn link: a 32px square cell with a 1px rule border holding the 18px stroked LinkedIn mark in ink, set at the right end of the name row. Hover fills film-deep and turns the mark blue over 200ms. It renders only when that person's `linkedin` URL is filled in `content/site.ts`, and is labelled "[Name] on LinkedIn" for screen readers.
 
+### Sheet Toggle
+The strip's last item: a 36px square cell (34px on phones) with a 1px rule border holding a stroked disc whose filled half swings round 180° over 400ms when the sheet flips. Hover fills film-deep and turns the mark blue-ink. It is a `button` labelled "Dark theme" with `aria-pressed`.
+
 ### Email Cell
 The title block's eighth column: a red cell with an EMAIL US title in the Title band, a 15px note, and the mono address pushed to the bottom behind a 50% white hairline. Becomes a horizontal row at tablet width.
 
@@ -316,5 +340,5 @@ The title block's eighth column: a red cell with an EMAIL US title in the Title 
 - **Don't** use blurred or offset shadows for depth; box-shadow is allowed only as zero-blur 1px rulings.
 - **Don't** set text in `hatch`, or any text lighter than `ink-3` on film.
 - **Don't** use solid red or blue fills for surfaces or decoration; solid tone fills belong to email and join actions (blue also marks text selection), and the committee application is ink.
-- **Don't** introduce a dark theme, neon glow or a headline set over a full-bleed photo.
+- **Don't** add neon glow or set a headline over a full-bleed photo; the night sheet is the same drawing in chalk, not a combat-arena look.
 - **Don't** use glyph or icon-font arrows; use the inline stroked SVG arrow.
