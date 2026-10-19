@@ -85,7 +85,11 @@ export const site = {
         ],
         skills: ["Programming", "Electronics", "Sensors", "Control systems"],
         leadRole: "Control Lead",
-        photos: [] as Photo[], // add up to 3, e.g. [{ src: "/photos/x.jpg", alt: "…" }]
+        photos: [
+            // { src: "/photos/unibots.png", alt: "unibots" }, 
+            { src: "/photos/rpi.jpg", alt: "Respberry PI" },
+            // { src: "/photos/python.jpg", alt: "Python" }
+        ] as Photo[], // add up to 3, e.g. [{ src: "/photos/x.jpg", alt: "…" }]
     },
 
     /** ── ANTWEIGHT ─────────────────────────────────────────────────────── */
@@ -109,20 +113,24 @@ export const site = {
         title: "Beetleweight",
         spec: "1.5 kg limit · 3 sub-teams",
         summary:
-            "Our biggest robot. At 1.5 kg it needs real engineering, so the work is split between three sub-teams that design their part of the robot and bring it together.",
+            "Our biggest robot at 1.5 kg. The work is split between three sub-teams that design their part of the robot and bring it together.",
         teams: [
             {
                 name: "Weapons",
                 summary:
-                    "Designs the weapon system that does the damage, and makes sure it survives hitting back.",
+                    "Idealise, design and build the weapon for the robot (including CAD and Manufacturing)",
                 work: [
-                    "Design and model the weapon",
-                    "Spec motors and drive belts",
-                    "Test impacts safely",
+                    "Come up with ideas for different weapon types",
+                    "Collaborate with the other teams to finalize the optimal weapon design",
+                    "Design the weapon in CAD and test in FEA.",
+                    "Build and manufacture the weapon alongside the other teams"
                 ],
-                skills: ["Mechanical design", "CAD", "Machining"],
+                skills: ["CAD", "FEA", "Material Analysis", "Physics"],
                 leadRole: "Weapons Lead",
-                photo: null,
+                photo: {
+                    src: "/photos/weapons.jpg",
+                    alt: "weapons"
+                } as Photo,
             },
             {
                 name: "Chassis",
