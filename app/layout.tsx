@@ -24,7 +24,7 @@ const mono = Azeret_Mono({
 export const metadata: Metadata = {
   title: `${site.name} | ${site.tagline}`,
   description: site.purpose,
-  icons: { icon: "/brand/mark.png" },
+  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/brand/mark.png` },
 };
 
 export const viewport: Viewport = {
