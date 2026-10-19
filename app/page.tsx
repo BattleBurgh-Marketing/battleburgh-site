@@ -114,7 +114,7 @@ export default function Home() {
                             preload
                         />
                         <span className="strip-name">{site.name}</span>
-                        <span className="strip-dwg mono-label">Edinburgh University's first battlebot society</span>
+                        <span className="strip-dwg mono-label">Edinburgh University’s first battlebot society</span>
                     </a>
                     <nav aria-label="Sections">
                         <ul>
