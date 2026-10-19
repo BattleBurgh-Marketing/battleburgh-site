@@ -180,7 +180,7 @@ All copy, links, photos and committee entries come from one file, `content/site.
 - Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.
 - Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for zone markers, specs and captions.
 - Square corners on every rectangle; circles only for balloons and leader terminals.
-- One signature motion: frames trace in, photos plot in, leaders extend, balloons land, once, below the fold only.
+- One signature motion, the plot: every rule is drawn left to right, then each view's contents ink in, then its coloured actions sweep in. The first viewport plots on load; each later zone plots once as it enters.
 
 ## Colors
 
@@ -296,6 +296,8 @@ The sheet is flat. Depth is conveyed only by line weight: the 2px ink frame and 
 - **Ruling** (`box-shadow: 1px 0 0 var(--rule), 0 1px 0 var(--rule), 1px 1px 0 var(--rule)`): draws hairlines between cells where the gap-over-background technique can't be used. Lines only.
 
 ### Named Rules
+**The Plotted Line Rule.** Every line on the sheet is a background stroke whose length is the registered `--draw` property (`linear-gradient(colour, colour) left top / var(--draw) 1px no-repeat`), never a `border`. At rest `--draw` is 100%; the plot animates it from 0%. A new line drawn as a border will not plot.
+
 **The Line Weight Rule.** Hierarchy of structure is 2px ink, then 1px rule, then 1px hatch. No blur, no lift, no glow.
 
 ## Shapes
@@ -303,6 +305,14 @@ The sheet is flat. Depth is conveyed only by line weight: the 2px ink frame and 
 Every rectangle has square corners: cells, buttons, chips, photo frames, the email cell. The only curves are the drawing's own: circular balloons (1.5px ink outline, 52px; 34px small; 42px on phones) and the 7px filled dot that terminates each leader line. Empty photo views are filled with 45° section hatching (1px hatch lines every 10px) with a small bordered mono tag. Arrows and icons are inline 16-unit SVG strokes (1.6 width, square caps), never glyphs or icon fonts. Brand marks are redrawn in that stroke rather than pasted as logos: LinkedIn is a stroked square frame around a stroked "in".
 
 ## Components
+
+### The Plot (entrance motion)
+The sheet draws itself like a pen plotter. Three passes, always left to right, on `cubic-bezier(0.16, 1, 0.3, 1)`:
+1. **Rules.** The 2px frame (top and bottom edges across, sides down, 1600ms), the strip's bottom rule, each zone's top rule and margin tick, every ruled grid's hairlines (a rule-coloured stroke widening behind the 1px gaps, 900–1000ms), field-list rows and footer link underlines one after another.
+2. **Ink.** Each view's contents wipe in with `clip-path: inset(0 100% 0 0)` → `inset(0)` over 700ms, staggered 60–120ms in reading order: view titles, specs, summaries, fields, team columns, committee seats (rulings included).
+3. **Actions.** Coloured fills last: EMAIL US, the email cell (its red is itself a `--draw` stroke, so the sweep never exposes the grid behind it), join buttons, the footer address.
+
+The first viewport plays on load and settles by about 1.7s. Every later zone holds at its first frame (`animation-play-state: paused`) until Trace sees it enter (`data-zone="go"`), then plays its own sequence from zero. The layer only exists under `html[data-plot]`, which the head script sets before paint unless the visitor prefers reduced motion; if Trace never mounts, the script removes it after 5s so nothing stays undrawn. Fill-mode is `backwards`, so nothing is left clipped once a piece lands and focus outlines are never cut.
 
 ### Buttons
 Solid, square, lettered.
@@ -333,7 +343,7 @@ A headline in the zone's tone, a 1px ink leader running from a dot terminal acro
 First-viewport row per programme: tone-coloured Title, small balloon with the zone letter, mono spec with a tone arrow. Hover tints the cell 7% toward the tone and slides the arrow 4px.
 
 ### Photo View (signature)
-A framed slot with a 1px ink trace rectangle over the image and a mono caption beneath ("Unibot · 1", "Detail 1 · In the workshop"). Below the fold it draws in once: the frame strokes on over 1100ms, then the image wipes in left to right over 1000ms after 450ms. Content is fully drawn by default; only elements starting below the fold are set pending, and reduced motion removes all transitions.
+A framed slot with a 1px ink trace rectangle over the image and a mono caption beneath ("Unibot · 1", "Detail 1 · In the workshop"). Below the fold it draws in once: the frame strokes on over 1100ms, then the image wipes in left to right over 1000ms after 450ms. In the first viewport it inks in with the Plot instead. Content is fully drawn by default; only elements starting below the fold are set pending, and reduced motion removes all transitions.
 
 ### Field List
 A field label over hatch-ruled rows (7px vertical padding), or over inline skill chips.
@@ -358,7 +368,8 @@ The title block's eighth column: a red cell with an EMAIL US title in the Title 
 - **Do** colour by programme: `tone-blue` for control/Unibot, `tone-red` for fighting bots; email is always red.
 - **Do** render every string, link and photo from `content/site.ts`, and let a `null` photo fall back to the hatched "Photo to add" view.
 - **Do** caption every photo view with a mono label, and keep imagery to real build and meeting photos.
-- **Do** keep the trace-in motion on `cubic-bezier(0.16, 1, 0.3, 1)`, once per element, below the fold only, and off under reduced motion.
+- **Do** keep entrance motion to the Plot: left to right, rules → ink → actions, on `cubic-bezier(0.16, 1, 0.3, 1)`, once per zone, gated on `html[data-plot]`, and off under reduced motion. Give a new element a `--d` delay in its zone's sequence rather than a new kind of entrance.
+- **Do** draw any new line as a `--draw` background stroke, not a border (The Plotted Line Rule).
 
 ### Don't:
 - **Don't** round rectangle corners; circles are reserved for balloons and leader terminals.

@@ -83,6 +83,24 @@
   color-scheme: dark;
 }
 
+/* Every line on the sheet is a background stroke whose length is --draw, so
+   it can be plotted from 0% to 100%. At rest --draw is 100%: fully drawn. */
+@property --draw {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --draw-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --fill-c {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
 @theme inline {
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -203,13 +221,21 @@ h3 {
 }
 
 .frame {
-  border: var(--frame) solid var(--ink);
-  background: var(--film);
+  --pen: linear-gradient(var(--ink), var(--ink));
+  padding: var(--frame);
+  background:
+    var(--pen) left top / var(--draw) var(--frame) no-repeat,
+    var(--pen) left bottom / var(--draw) var(--frame) no-repeat,
+    var(--pen) left top / var(--frame) var(--draw-y) no-repeat,
+    var(--pen) right top / var(--frame) var(--draw-y) no-repeat,
+    var(--film);
 }
 
 .zone {
   position: relative;
-  border-top: 1px solid var(--rule);
+  padding-top: 1px;
+  background: linear-gradient(var(--rule), var(--rule)) left top / var(--draw)
+    1px no-repeat;
 }
 
 .zone-mark {
@@ -222,10 +248,12 @@ h3 {
   font-family: var(--font-mono), monospace;
   font-size: 12px;
   color: var(--ink-3);
-  border-top: 1px solid var(--hatch);
+  background: linear-gradient(var(--hatch), var(--hatch)) left top /
+    var(--draw) 1px no-repeat;
 }
 
-/* Ruled grids: 1px gaps over the rule colour read as hairlines. */
+/* Ruled grids: 1px gaps over a rule-coloured stroke read as hairlines. The
+   stroke spans --draw of the width, so the rulings plot in from the left. */
 .hero,
 .hero-views,
 .title-block,
@@ -235,7 +263,8 @@ h3 {
 .footer {
   display: grid;
   gap: 1px;
-  background: var(--rule);
+  background: linear-gradient(var(--rule), var(--rule)) left top / var(--draw)
+    100% no-repeat var(--film);
 }
 .cell {
   background: var(--film);
@@ -252,8 +281,8 @@ h3 {
   gap: 24px;
   height: var(--strip-h);
   padding: 0 20px;
-  background: var(--film);
-  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(var(--rule), var(--rule)) left bottom /
+    var(--draw) 1px no-repeat var(--film);
 }
 
 .strip-brand {
@@ -361,7 +390,7 @@ h3 {
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: minmax(260px, 1fr) auto;
   min-height: calc(100svh - var(--strip-h) - 28px - var(--frame));
-  border-top: 0;
+  padding-top: 0;
 }
 
 .hero-photo {
@@ -494,7 +523,12 @@ h3 {
 .title-block {
   grid-column: 1 / -1;
   grid-template-columns: repeat(8, 1fr);
-  border-top: var(--frame) solid var(--ink);
+  padding-top: var(--frame);
+  background:
+    linear-gradient(var(--ink), var(--ink)) left top / var(--draw) var(--frame)
+      no-repeat,
+    linear-gradient(var(--rule), var(--rule)) left top / var(--draw) 100%
+      no-repeat var(--film);
 }
 .tb-name {
   grid-column: 1 / 6;
@@ -570,12 +604,14 @@ h3 {
   flex-direction: column;
   gap: 10px;
   padding: 20px 20px 18px;
-  background: var(--red);
+  --fill-c: var(--red);
+  background: linear-gradient(var(--fill-c), var(--fill-c)) left top /
+    var(--draw) 100% no-repeat var(--film);
   color: var(--on-accent);
-  transition: background-color 250ms var(--ease);
+  transition: --fill-c 250ms var(--ease);
 }
 .tb-email:hover {
-  background: var(--red-deep);
+  --fill-c: var(--red-deep);
 }
 .tb-email:focus-visible {
   outline-color: var(--ink);
@@ -773,7 +809,7 @@ h3 {
 /* ── Zones B / C · bots ────────────────────────────────────────────────── */
 .bot-body {
   grid-template-columns: repeat(8, 1fr);
-  border-top: 1px solid var(--rule);
+  padding-top: 1px;
 }
 .bot-text {
   grid-column: 1 / 4;
@@ -821,10 +857,13 @@ h3 {
 }
 .field-list li {
   padding: 7px 0;
-  border-top: 1px solid var(--hatch);
+  --pen: linear-gradient(var(--hatch), var(--hatch));
+  background: var(--pen) left top / var(--draw) 1px no-repeat;
 }
 .field-list li:last-child {
-  border-bottom: 1px solid var(--hatch);
+  background:
+    var(--pen) left top / var(--draw) 1px no-repeat,
+    var(--pen) left bottom / var(--draw) 1px no-repeat;
 }
 .field-inline {
   display: flex;
@@ -848,7 +887,8 @@ h3 {
   justify-content: space-between;
   gap: 16px;
   padding-top: 16px;
-  border-top: 1px solid var(--rule);
+  background: linear-gradient(var(--rule), var(--rule)) left top / var(--draw)
+    1px no-repeat;
 }
 
 /* Vacant committee seat: an ink action, never a tone fill. */
@@ -914,7 +954,7 @@ h3 {
 }
 .teams {
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--rule);
+  padding-top: 1px;
 }
 .team {
   display: flex;
@@ -940,8 +980,9 @@ h3 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: var(--film);
-  border-top: 1px solid var(--rule);
+  padding-top: 1px;
+  background: linear-gradient(var(--rule), var(--rule)) left top / var(--draw)
+    1px no-repeat var(--film);
   overflow: hidden;
 }
 .person {
@@ -1063,7 +1104,8 @@ h3 {
 .footer-links a {
   display: block;
   padding: 6px 0;
-  border-bottom: 1px solid var(--hatch);
+  background: linear-gradient(var(--hatch), var(--hatch)) left bottom /
+    var(--draw) 1px no-repeat;
   font-family: var(--font-display), sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -1337,4 +1379,276 @@ h3 {
     transition-duration: 0ms !important;
     transition-delay: 0ms !important;
   }
+}
+
+/* ── Plotting: the sheet draws itself ─────────────────────────────────────
+   Rules are drawn left to right, then each view's contents ink in, then its
+   coloured actions sweep in. Everything is drawn at rest; this layer only
+   applies once the head script sets html[data-plot] (JS on, motion allowed).
+   The first viewport plots on load; each later zone waits until Trace sees
+   it, then plays. Fill-mode is backwards, so nothing is left
+   clipped once a piece has landed. */
+@keyframes plot-rule {
+  from {
+    --draw: 0%;
+  }
+}
+@keyframes plot-frame {
+  from {
+    --draw: 0%;
+    --draw-y: 0%;
+  }
+}
+@keyframes ink-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes ink-in-ruled {
+  from {
+    clip-path: inset(0 100% -1px 0);
+  }
+  to {
+    clip-path: inset(0 -1px -1px 0);
+  }
+}
+
+html[data-plot] :is(
+    .frame,
+    .strip,
+    .zone,
+    .zone-mark,
+    .hero,
+    .hero-views,
+    .title-block,
+    .tb-links,
+    .bot-body,
+    .teams,
+    .people,
+    .footer,
+    .field-list li,
+    .footer-links a,
+    .tb-email
+  ) {
+  animation: plot-rule var(--plot, 900ms) var(--ease) var(--d, 0ms) backwards;
+}
+html[data-plot] .frame {
+  --plot: 1600ms;
+  animation-name: plot-frame;
+}
+
+/* Contents and actions ink in left to right. */
+html[data-plot] :is(
+    .strip-brand,
+    .strip nav li,
+    .strip-mail,
+    .sheet-toggle,
+    .hero-photo > *,
+    .view-link,
+    .tb-name > *,
+    .tb-links a,
+    .tb-email > *,
+    .view-title h2,
+    .view-spec,
+    .bot-text > *,
+    .join-link,
+    .bot-photos > *,
+    .beetle-summary,
+    .team > *,
+    .committee-head h2,
+    .committee-head .mono-label,
+    .footer-call > *,
+    .footer-strip
+  ) {
+  animation: ink-in var(--ink-t, 700ms) var(--ease) var(--d, 0ms) backwards;
+}
+html[data-plot] .person {
+  animation: ink-in-ruled 700ms var(--ease) var(--d, 0ms) backwards;
+}
+
+/* A later zone holds at its first frame until Trace sees it and sets
+   data-zone="go". The first viewport (zone A) plays straight away. */
+html[data-plot] .zone:not(.hero):not([data-zone="go"]),
+html[data-plot] .zone:not(.hero):not([data-zone="go"]) * {
+  animation-play-state: paused;
+}
+
+/* ── Timing: first viewport (on load) ── */
+html[data-plot] .strip {
+  --d: 150ms;
+}
+html[data-plot] .strip-brand {
+  --d: 250ms;
+}
+html[data-plot] .strip nav li:nth-child(1) {
+  --d: 350ms;
+}
+html[data-plot] .strip nav li:nth-child(2) {
+  --d: 420ms;
+}
+html[data-plot] .strip nav li:nth-child(3) {
+  --d: 490ms;
+}
+html[data-plot] .strip-mail {
+  --d: 650ms;
+}
+html[data-plot] .sheet-toggle {
+  --d: 750ms;
+}
+html[data-plot] .hero {
+  --d: 250ms;
+  --plot: 1000ms;
+}
+html[data-plot] .hero-photo > * {
+  --d: 400ms;
+  --ink-t: 900ms;
+}
+html[data-plot] .hero-views {
+  --d: 400ms;
+}
+html[data-plot] .hero-views li:nth-child(1) .view-link {
+  --d: 550ms;
+}
+html[data-plot] .hero-views li:nth-child(2) .view-link {
+  --d: 650ms;
+}
+html[data-plot] .hero-views li:nth-child(3) .view-link {
+  --d: 750ms;
+}
+html[data-plot] .title-block {
+  --d: 500ms;
+  --plot: 1000ms;
+}
+html[data-plot] .tb-name > :nth-child(1) {
+  --d: 650ms;
+}
+html[data-plot] .tb-name > :nth-child(2) {
+  --d: 750ms;
+}
+html[data-plot] .tb-name > :nth-child(3) {
+  --d: 820ms;
+}
+html[data-plot] .tb-links {
+  --d: 650ms;
+}
+html[data-plot] .tb-links li:nth-child(1) a {
+  --d: 800ms;
+}
+html[data-plot] .tb-links li:nth-child(2) a {
+  --d: 860ms;
+}
+html[data-plot] .tb-links li:nth-child(3) a {
+  --d: 920ms;
+}
+html[data-plot] .tb-links li:nth-child(4) a {
+  --d: 980ms;
+}
+html[data-plot] .tb-email {
+  --d: 950ms;
+  --plot: 700ms;
+}
+html[data-plot] .tb-email > * {
+  --d: 1100ms;
+}
+
+/* ── Timing: each later zone, counted from when it enters ── */
+html[data-plot] .zone-mark {
+  --d: 0ms;
+}
+html[data-plot] :is(.view-title h2, .committee-head h2) {
+  --d: 150ms;
+}
+html[data-plot] :is(.view-spec, .committee-head .mono-label) {
+  --d: 350ms;
+}
+html[data-plot] :is(.bot-body, .teams, .people, .footer) {
+  --d: 250ms;
+  --plot: 1000ms;
+}
+html[data-plot] .bot-text > :nth-child(1),
+html[data-plot] .beetle-summary,
+html[data-plot] .bot-photos > *,
+html[data-plot] .footer-call > :nth-child(1) {
+  --d: 450ms;
+}
+html[data-plot] .bot-text > :nth-child(2) {
+  --d: 550ms;
+}
+html[data-plot] .bot-text > :nth-child(3) {
+  --d: 650ms;
+}
+html[data-plot] .bot-text > :nth-child(4) {
+  --d: 750ms;
+}
+/* Inside a field, the rows rule off one by one under the inking label. */
+html[data-plot] .field-list li:nth-child(1) {
+  --d: 600ms;
+}
+html[data-plot] .field-list li:nth-child(2) {
+  --d: 670ms;
+}
+html[data-plot] .field-list li:nth-child(3) {
+  --d: 740ms;
+}
+html[data-plot] .field-list li:nth-child(n + 4) {
+  --d: 810ms;
+}
+html[data-plot] .join-link,
+html[data-plot] .footer-call > :nth-child(2) {
+  --ink-t: 500ms;
+  --d: 1000ms;
+}
+html[data-plot] .team:nth-child(1) > * {
+  --d: 450ms;
+}
+html[data-plot] .team:nth-child(2) > * {
+  --d: 570ms;
+}
+html[data-plot] .team:nth-child(3) > * {
+  --d: 690ms;
+}
+html[data-plot] .person:nth-child(1) {
+  --d: 300ms;
+}
+html[data-plot] .person:nth-child(2) {
+  --d: 350ms;
+}
+html[data-plot] .person:nth-child(3) {
+  --d: 400ms;
+}
+html[data-plot] .person:nth-child(4) {
+  --d: 450ms;
+}
+html[data-plot] .person:nth-child(5) {
+  --d: 500ms;
+}
+html[data-plot] .person:nth-child(6) {
+  --d: 550ms;
+}
+html[data-plot] .person:nth-child(7) {
+  --d: 600ms;
+}
+html[data-plot] .person:nth-child(8) {
+  --d: 650ms;
+}
+html[data-plot] .person:nth-child(9) {
+  --d: 700ms;
+}
+html[data-plot] .person:nth-child(n + 10) {
+  --d: 750ms;
+}
+html[data-plot] .footer-links a {
+  --d: 500ms;
+}
+html[data-plot] .footer-links li:nth-child(n + 3) a {
+  --d: 600ms;
+}
+html[data-plot] .footer-links li:nth-child(n + 5) a {
+  --d: 700ms;
+}
+html[data-plot] .footer-strip {
+  --d: 800ms;
 }

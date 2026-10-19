@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T14:26:18+00:00",
+  "generatedAt": "2026-10-19T14:44:07+00:00",
   "title": "Design System: Battleburgh",
   "extensions": {
     "colorMeta": {
@@ -390,6 +390,26 @@
         "purpose": "Balloon letter lands once the leader has extended."
       },
       {
+        "name": "plot-frame",
+        "value": "1600ms",
+        "purpose": "On load the 2px sheet frame draws: top and bottom edges left to right, sides downward."
+      },
+      {
+        "name": "plot-rule",
+        "value": "900–1000ms, staggered",
+        "purpose": "Every rule (grid hairlines, zone rules, field rows, underlines) grows left to right by animating the registered --draw property from 0% to 100%."
+      },
+      {
+        "name": "plot-ink",
+        "value": "700ms, 60–120ms stagger",
+        "purpose": "View contents wipe in left to right with clip-path inset(0 100% 0 0) → inset(0), after their rules."
+      },
+      {
+        "name": "plot-action",
+        "value": "500–700ms, last in each zone",
+        "purpose": "Coloured actions (email, join, footer address) sweep in left to right."
+      },
+      {
         "name": "spider-drop",
         "value": "5s alternate, infinite",
         "purpose": "Hallowe'en only: the cobweb spider lets itself down 30px on its thread and climbs back, on the plot easing. Off under reduced motion."
@@ -547,7 +567,7 @@
       "Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.",
       "Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for zone markers, specs and captions.",
       "Square corners on every rectangle; circles only for balloons and leader terminals.",
-      "One signature motion: frames trace in, photos plot in, leaders extend, balloons land, once, below the fold only."
+      "One signature motion, the plot: every rule is drawn left to right, then each view's contents ink in, then its coloured actions sweep in. The first viewport plots on load; each later zone plots once as it enters."
     ],
     "rules": [
       {
@@ -576,6 +596,11 @@
         "section": "typography"
       },
       {
+        "name": "The Plotted Line Rule",
+        "body": "Every line on the sheet is a background stroke whose length is the registered `--draw` property (`linear-gradient(colour, colour) left top / var(--draw) 1px no-repeat`), never a `border`. At rest `--draw` is 100%; the plot animates it from 0%. A new line drawn as a border will not plot.",
+        "section": "elevation"
+      },
+      {
         "name": "The Line Weight Rule",
         "body": "Hierarchy of structure is 2px ink, then 1px rule, then 1px hatch. No blur, no lift, no glow.",
         "section": "elevation"
@@ -587,7 +612,8 @@
       "colour by programme: `tone-blue` for control/Unibot, `tone-red` for fighting bots; email is always red.",
       "render every string, link and photo from `content/site.ts`, and let a `null` photo fall back to the hatched \"Photo to add\" view.",
       "caption every photo view with a mono label, and keep imagery to real build and meeting photos.",
-      "keep the trace-in motion on `cubic-bezier(0.16, 1, 0.3, 1)`, once per element, below the fold only, and off under reduced motion."
+      "keep entrance motion to the Plot: left to right, rules → ink → actions, on `cubic-bezier(0.16, 1, 0.3, 1)`, once per zone, gated on `html[data-plot]`, and off under reduced motion. Give a new element a `--d` delay in its zone's sequence rather than a new kind of entrance.",
+      "draw any new line as a `--draw` background stroke, not a border (The Plotted Line Rule)."
     ],
     "donts": [
       "round rectangle corners; circles are reserved for balloons and leader terminals.",

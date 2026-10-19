@@ -31,7 +31,27 @@ export function Trace() {
       { rootMargin: "0px 0px -12% 0px" },
     );
     pending.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    // Zones below the first viewport hold their plotting until they enter.
+    (window as Window & { __plotted?: boolean }).__plotted = true;
+    const zones = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          (entry.target as HTMLElement).dataset.zone = "go";
+          zones.unobserve(entry.target);
+        }
+      },
+      { rootMargin: "0px 0px -12% 0px" },
+    );
+    document
+      .querySelectorAll<HTMLElement>(".zone:not(.hero)")
+      .forEach((el) => zones.observe(el));
+
+    return () => {
+      io.disconnect();
+      zones.disconnect();
+    };
   }, []);
 
   return null;
