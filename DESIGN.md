@@ -108,6 +108,14 @@ components:
     padding: "9px 14px"
   button-join-blue-hover:
     backgroundColor: "{colors.blue-deep}"
+  button-apply:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.film}"
+    typography: "{typography.action}"
+    rounded: "{rounded.none}"
+    padding: "9px 14px"
+  button-apply-hover:
+    backgroundColor: "{colors.ink-2}"
   button-mail-address:
     backgroundColor: "{colors.red}"
     textColor: "{colors.on-accent}"
@@ -158,9 +166,9 @@ components:
 
 **Creative North Star: "The Drawing Sheet"**
 
-The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a margin that carries zone references: column numbers 1 to 8 along the top and bottom edge, zone letters A to F down the left edge, one letter per section. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block with the drawing number (DWG BB-GA-001), revision and scale.
+The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a margin that carries zone references: column numbers 1 to 8 along the top and bottom edge, zone letters A to F down the left edge, one letter per section. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block: the society name, its purpose, the channel cells and the email cell.
 
-Density is that of a working drawing: many small labelled fields, big uppercase view titles, and real build photos plotted into traced frames. Colour is almost entirely ink on film. Two accent inks do the coding work: blue for the control/Unibot programme, red for the fighting bots and for every email action. Nothing is lifted, rounded or glowing; depth comes only from ruling and the 2px frame. The world rejects the dark neon combat-robot hero and the full-bleed-photo-under-headline society template.
+Density is that of a working drawing: many small labelled fields, big uppercase view titles, and real build photos plotted into traced frames. Colour is almost entirely ink on film. Two accent inks do the coding work: blue for the control/Unibot programme, red for the fighting bots, their join actions and every email action. Nothing is lifted, rounded or glowing; depth comes only from ruling and the 2px frame. The world rejects the dark neon combat-robot hero and the full-bleed-photo-under-headline society template.
 
 All copy, links, photos and committee entries come from one file, `content/site.ts`; the page renders entirely from it. A photo set to `null` renders as a section-hatched "Photo to add" view, so missing imagery is drawn honestly rather than faked.
 
@@ -168,8 +176,8 @@ All copy, links, photos and committee entries come from one file, `content/site.
 - Light drafting-film ground with near-black ink; one 2px frame, everything else 1px hairlines.
 - An 8-column zone grid that the margin numbers literally label.
 - Zone letters A–F in the left margin; balloon letters on view titles match the zone they head.
-- Blue codes Unibot/control; red codes fighting bots and the email action.
-- Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for drawing numbers, specs and captions.
+- Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.
+- Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for zone markers, specs and captions.
 - Square corners on every rectangle; circles only for balloons and leader terminals.
 - One signature motion: frames trace in, photos plot in, leaders extend, balloons land, once, below the fold only.
 
@@ -188,7 +196,7 @@ Ink and drafting film, with two coding inks used by meaning, never by decoration
 - **Film Shade** (`film-deep`): hover fill for neutral links and cells, empty image ground, scrollbar track.
 - **Drawing Ink** (`ink`): body text, the 2px sheet frame, the 2px title-block top border, balloon outlines, leader lines, photo trace strokes.
 - **Ink Two** (`ink-2`): secondary text: purpose paragraph, mono captions, field labels, specs.
-- **Ink Three** (`ink-3`): tertiary text: zone numbers and letters, title-block meta, unnamed committee entries, placeholder captions. Holds 5:1 on film; it is the lightest colour allowed for text.
+- **Ink Three** (`ink-3`): tertiary text: zone numbers and letters, placeholder captions. Holds 5:1 on film; it is the lightest colour allowed for text.
 - **Rule** (`rule`): the 1px hairlines that divide every ruled grid, the strip's bottom edge, skill-chip and person-photo borders.
 - **Hatch** (`hatch`): section-hatching lines, margin zone dividers, field-list dividers, footer link underlines. Never text.
 - **On-Accent White** (`on-accent`): text on red and blue fills only.
@@ -196,7 +204,7 @@ Ink and drafting film, with two coding inks used by meaning, never by decoration
 ### Named Rules
 **The Coding Ink Rule.** Blue means control/Unibot; red means fighting bots or email. A colour is chosen by what the element belongs to, carried through a single `--tone` / `--tone-deep` pair set by `tone-blue` or `tone-red`. Never pick an accent for variety.
 
-**The Red Email Rule.** Every email action is a solid red fill with white text. There is no outline or ghost email button, and red fills are not used for anything that is not email or a fighting-bot join action.
+**The Red Email Rule.** Every email action is a solid red fill with white text. There is no outline or ghost email button, and red fills are not used for anything that is not email or a fighting-bot join action. The committee application is an ink action, never red.
 
 **The Hatch Is Not Ink Rule.** Hatch (1.67:1 on film) draws dividers and hatching only; any text uses ink, ink-2 or ink-3.
 
@@ -217,13 +225,13 @@ Ink and drafting film, with two coding inks used by meaning, never by decoration
 - **Field label** (600, 14px, 0.05em, uppercase, ink-2): names a field (What you'd do, Skills, Lead, committee role, footer column).
 - **Lead** (400, 20px, 1.45, max 46ch): the summary paragraph opening each bot zone; 18px on phones.
 - **Body** (400, 17px, 1.55): reading copy; 16px on phones. Purpose paragraph capped at 62ch.
-- **Label** (Azeret Mono 400, 11.5px, 0.06em, uppercase, ink-2): figure captions, drawing number, title-block meta, session.
+- **Label** (Azeret Mono 400, 11.5px, 0.06em, uppercase, ink-2): figure captions, the strip's tagline, the academic year, the footer strip.
 - **Spec** (Azeret Mono 400, 12–13px, 0.04em, uppercase): specs beside view titles and in view links. Zone markers use the mono at 11–12px in ink-3.
 
 ### Named Rules
 **The Lettered Caps Rule.** Every h1–h3, nav item, button and field label is uppercase Barlow Condensed. Sentence-case is for Barlow reading copy only.
 
-**The Mono Is Data Rule.** Azeret Mono carries drawing numbers, zones, specs, captions and the email address, never sentences of prose.
+**The Mono Is Data Rule.** Azeret Mono carries zones, specs, captions and the email address, never sentences of prose.
 
 ## Layout
 
@@ -233,7 +241,7 @@ Ruled grids are the core layout device: a grid with a 1px gap over a rule-colour
 
 First viewport: photo view in columns 1–5, three stacked view links in 6–8, then a full-width title block under a 2px ink border (name 1–5, social cells 6–7, red email cell 8). The strip is sticky at 60px (54px on phones) with a 1px rule beneath it; anchor scrolling offsets by its height.
 
-Bot zones split 3/5 columns, text and photos, with the Antweight zone mirrored. Beetleweight teams sit in three columns; committee in five.
+Bot zones split 3/5 columns, text and photos, with the Antweight zone mirrored. Beetleweight teams sit in three columns; committee in five, with the last row left short when the roster doesn't fill it.
 
 Responsive: at 1180px the email cell becomes a full-width row, bot zones split 4/4, teams go 2+1, committee to four. At 760px everything is one column, the title block dissolves into the hero and reorders to name, email cell, view links, photo, social cells; photos move above text in bot zones; committee is two-up; the strip drops the wordmark and email button.
 
@@ -257,7 +265,8 @@ Every rectangle has square corners: cells, buttons, chips, photo frames, the ema
 Solid, square, lettered.
 - **Shape:** square corners (0px).
 - **Email:** red fill, white Action caps with a trailing arrow, 36px tall in the strip; 12px 16px with the mono address in the footer.
-- **Join:** tone fill (red or blue per team), white Action caps, 9px 14px, labelled "Join [team]" and opening a pre-subjected email.
+- **Join:** tone fill (red or blue per team), white Action caps, 9px 14px, labelled "Join [team]" with a trailing arrow, opening the member application form. It sits at the foot of each team cell, beside the team lead's name, over a 1px rule.
+- **Apply (committee):** an ink fill with film-coloured Action caps, 9px 14px, labelled "This could be you" with a trailing arrow, opening the committee application form. It takes the place of the name on any committee seat whose `name` is empty, so a vacancy reads as an invitation rather than "To be announced". Hover lightens to ink-2. On phones it fills the cell width at 16px and wraps onto two lines, with the arrow held at the right.
 - **Hover / Focus:** fill darkens to the deep tone over 200ms; the arrow nudges 3–4px along its direction over 300ms. Focus is a 2px blue outline offset 2px (on the red email cell, ink, inset 4px).
 
 ### Chips
@@ -271,11 +280,11 @@ Solid, square, lettered.
 - **Internal Padding:** 28px text cells, 24px team and photo cells, 18px person cells.
 
 ### Navigation
-- **Strip:** sticky, film ground, 1px rule bottom edge; brand mark (34px), wordmark in 22px condensed caps, drawing number in mono behind a hatch divider (hidden under 1180px). Three Action-caps links, 36px tall, film-deep fill on hover; red EMAIL US button at the end.
+- **Strip:** sticky, film ground, 1px rule bottom edge; brand mark (34px), wordmark in 22px condensed caps, the society's tagline in mono behind a hatch divider (hidden under 1180px). Three Action-caps links, 36px tall, film-deep fill on hover; red EMAIL US button at the end.
 - **Footer links:** stacked 20px condensed caps rows with hatch underlines; text turns blue on hover.
 
 ### View Title (signature)
-A headline in the zone's tone, a 1px ink leader running from a dot terminal across to a circled balloon bearing the zone letter, and a right-aligned mono spec line ("View B · Autonomous · Unibots competition"). The committee head uses the same leader with an ink title and the session as its label.
+A headline in the zone's tone, a 1px ink leader running from a dot terminal across to a circled balloon bearing the zone letter, and a right-aligned mono spec line ("View B · Autonomous · Unibots competition"). The committee head uses the same leader with an ink title and "Academic year 2026–27" as its label.
 
 ### View Link (signature)
 First-viewport row per programme: tone-coloured Title, small balloon with the zone letter, mono spec with a tone arrow. Hover tints the cell 7% toward the tone and slides the arrow 4px.
@@ -306,6 +315,6 @@ The title block's eighth column: a red cell with an EMAIL US title in the Title 
 - **Don't** round rectangle corners; circles are reserved for balloons and leader terminals.
 - **Don't** use blurred or offset shadows for depth; box-shadow is allowed only as zero-blur 1px rulings.
 - **Don't** set text in `hatch`, or any text lighter than `ink-3` on film.
-- **Don't** use solid red or blue fills for surfaces or decoration; solid tone fills belong to email and join actions (blue also marks text selection).
+- **Don't** use solid red or blue fills for surfaces or decoration; solid tone fills belong to email and join actions (blue also marks text selection), and the committee application is ink.
 - **Don't** introduce a dark theme, neon glow or a headline set over a full-bleed photo.
 - **Don't** use glyph or icon-font arrows; use the inline stroked SVG arrow.

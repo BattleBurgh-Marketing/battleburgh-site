@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T09:19:50+00:00",
+  "generatedAt": "2026-10-19T10:23:43+00:00",
   "title": "Design System: Battleburgh",
   "extensions": {
     "colorMeta": {
@@ -295,7 +295,7 @@
       "name": "Join Button (Red)",
       "kind": "button",
       "refersTo": "button-join-red",
-      "description": "Join action for a fighting-bot team; opens a pre-subjected email.",
+      "description": "Join action for a fighting-bot team; opens the member application form.",
       "html": "<a class=\"ds-btn-join-red\" href=\"#\">Join Weapons <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a>",
       "css": ".ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-join-red { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--red, #c9202a); color: #fff; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-join-red:hover { background: var(--red-deep, #a3161f); } .ds-btn-join-red:hover .ds-arrow { transform: translateX(3px); } .ds-btn-join-red:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; }"
     },
@@ -303,9 +303,17 @@
       "name": "Join Button (Blue)",
       "kind": "button",
       "refersTo": "button-join-blue",
-      "description": "Join action for the Unibot/control team.",
+      "description": "Join action for the Unibot/control team; opens the member application form.",
       "html": "<a class=\"ds-btn-join-blue\" href=\"#\">Join Control <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a>",
       "css": ".ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-join-blue { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--blue, #2457e6); color: #fff; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-join-blue:hover { background: var(--blue-deep, #1a43b8); } .ds-btn-join-blue:hover .ds-arrow { transform: translateX(3px); } .ds-btn-join-blue:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; }"
+    },
+    {
+      "name": "Apply Button (Committee)",
+      "kind": "button",
+      "refersTo": "button-apply",
+      "description": "Replaces the name on a vacant committee seat; ink fill, opens the committee application form.",
+      "html": "<a class=\"ds-btn-apply\" href=\"#\">This could be you <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a>",
+      "css": ".ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-apply { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--ink, #151515); color: var(--film, #ecebe6); font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-apply:hover { background: var(--ink-2, #44433f); } .ds-btn-apply:hover .ds-arrow { transform: translateX(3px); } .ds-btn-apply:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; }"
     },
     {
       "name": "Strip Navigation",
@@ -374,13 +382,13 @@
   ],
   "narrative": {
     "northStar": "The Drawing Sheet",
-    "overview": "The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a margin that carries zone references: column numbers 1 to 8 along the top and bottom edge, zone letters A to F down the left edge, one letter per section. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block with the drawing number (DWG BB-GA-001), revision and scale.\n\nDensity is that of a working drawing: many small labelled fields, big uppercase view titles, and real build photos plotted into traced frames. Colour is almost entirely ink on film. Two accent inks do the coding work: blue for the control/Unibot programme, red for the fighting bots and for every email action. Nothing is lifted, rounded or glowing; depth comes only from ruling and the 2px frame. The world rejects the dark neon combat-robot hero and the full-bleed-photo-under-headline society template.\n\nAll copy, links, photos and committee entries come from one file, `content/site.ts`; the page renders entirely from it. A photo set to `null` renders as a section-hatched \"Photo to add\" view, so missing imagery is drawn honestly rather than faked.",
+    "overview": "The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a margin that carries zone references: column numbers 1 to 8 along the top and bottom edge, zone letters A to F down the left edge, one letter per section. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block: the society name, its purpose, the channel cells and the email cell.\n\nDensity is that of a working drawing: many small labelled fields, big uppercase view titles, and real build photos plotted into traced frames. Colour is almost entirely ink on film. Two accent inks do the coding work: blue for the control/Unibot programme, red for the fighting bots, their join actions and every email action. Nothing is lifted, rounded or glowing; depth comes only from ruling and the 2px frame. The world rejects the dark neon combat-robot hero and the full-bleed-photo-under-headline society template.\n\nAll copy, links, photos and committee entries come from one file, `content/site.ts`; the page renders entirely from it. A photo set to `null` renders as a section-hatched \"Photo to add\" view, so missing imagery is drawn honestly rather than faked.",
     "keyCharacteristics": [
       "Light drafting-film ground with near-black ink; one 2px frame, everything else 1px hairlines.",
       "An 8-column zone grid that the margin numbers literally label.",
       "Zone letters A–F in the left margin; balloon letters on view titles match the zone they head.",
-      "Blue codes Unibot/control; red codes fighting bots and the email action.",
-      "Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for drawing numbers, specs and captions.",
+      "Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.",
+      "Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for zone markers, specs and captions.",
       "Square corners on every rectangle; circles only for balloons and leader terminals.",
       "One signature motion: frames trace in, photos plot in, leaders extend, balloons land, once, below the fold only."
     ],
@@ -392,7 +400,7 @@
       },
       {
         "name": "The Red Email Rule",
-        "body": "Every email action is a solid red fill with white text. There is no outline or ghost email button, and red fills are not used for anything that is not email or a fighting-bot join action.",
+        "body": "Every email action is a solid red fill with white text. There is no outline or ghost email button, and red fills are not used for anything that is not email or a fighting-bot join action. The committee application is an ink action, never red.",
         "section": "colors"
       },
       {
@@ -407,7 +415,7 @@
       },
       {
         "name": "The Mono Is Data Rule",
-        "body": "Azeret Mono carries drawing numbers, zones, specs, captions and the email address, never sentences of prose.",
+        "body": "Azeret Mono carries zones, specs, captions and the email address, never sentences of prose.",
         "section": "typography"
       },
       {
@@ -428,7 +436,7 @@
       "**Don't** round rectangle corners; circles are reserved for balloons and leader terminals.",
       "**Don't** use blurred or offset shadows for depth; box-shadow is allowed only as zero-blur 1px rulings.",
       "**Don't** set text in `hatch`, or any text lighter than `ink-3` on film.",
-      "**Don't** use solid red or blue fills for surfaces or decoration; solid tone fills belong to email and join actions (blue also marks text selection).",
+      "**Don't** use solid red or blue fills for surfaces or decoration; solid tone fills belong to email and join actions (blue also marks text selection), and the committee application is ink.",
       "**Don't** introduce a dark theme, neon glow or a headline set over a full-bleed photo.",
       "**Don't** use glyph or icon-font arrows; use the inline stroked SVG arrow."
     ]

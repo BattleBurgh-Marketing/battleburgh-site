@@ -55,16 +55,19 @@ export const site = {
     /** ── LINKS ─────────────────────────────────────────────────────────── */
     links: {
         // TODO: replace with the society's real address
-        email: "battleburgh@example.com",
+        email: "Battleburgh@gmail.com",
         // TODO: replace with real URLs
-        instagram: "https://instagram.com/",
+        instagram: "https://www.instagram.com/battleburgh/",
         /** TODO: your handle, e.g. "@battleburgh". Leave "" to show "Follow us". */
-        instagramHandle: "",
-        linktree: "https://linktr.ee/",
-        discord: "https://discord.gg/",
+        instagramHandle: "@battleburgh",
+        linktree: "https://linktr.ee/battleburgh?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+        discord: "https://tr.ee/_jZsx5RwhJ",
         /** Optional — the society's EUSA page. Set to "" to hide it. */
-        eusa: "",
+        eusa: "https://www.eusa.ed.ac.uk/activities/view/battleburgh",
     },
+
+    memberApplicationFormLink: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=sAafLmkWiUWHiRCgaTTcYeKNX3nibZFCqxA5uxBHthFURERGUlI0WVpITjk5TjNWMEdQNVRaRFJITi4u&route=shorturl",
+    committeeApplicationFormLink: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=sAafLmkWiUWHiRCgaTTcYeKNX3nibZFCqxA5uxBHthFURTdIUUJHSDhONUE5OTNFQUlNMTZBNjNVTC4u&route=shorturl",
 
     /** Big photo in the first screen. Best: a wide shot of a build session. */
     heroPhoto: null as Photo, // TODO e.g. { src: "/photos/build-night.jpg", alt: "Members wiring the robot's drive system in the workshop" }
@@ -177,7 +180,12 @@ export const site = {
         },
         {
             group: "Media",
-            people: [{ role: "Social Media Lead", name: "", linkedin: "", photo: null }],
+            people: [
+                { role: "Social Media Lead", name: "", linkedin: "", photo: null },
+                { role: "Sponsorship Lead", name: "", linkedin: "", photo: null },
+                { role: "Marketing Lead", name: "", linkedin: "", photo: null },
+                { role: "Business and Logistics Officer", name: "", linkedin: "", photo: null },
+            ],
         },
     ] as { group: string; people: Person[] }[],
 

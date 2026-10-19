@@ -689,6 +689,19 @@ h3 {
   padding-top: 16px;
   border-top: 1px solid var(--rule);
 }
+
+/* Vacant committee seat: an ink action, never a tone fill. */
+.join-cmt {
+  display: flex;
+}
+.join-cmt .join-link {
+  background: var(--ink);
+  color: var(--film);
+}
+.join-cmt .join-link:hover {
+  background: var(--ink-2);
+}
+
 .join-lead {
   display: grid;
   gap: 2px;
@@ -1116,7 +1129,15 @@ h3 {
   }
 
   .people {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .join-cmt .join-link {
+    flex: 1;
+    justify-content: space-between;
+    padding: 8px 10px;
+    font-size: 16px;
+    line-height: 1.05;
+    white-space: normal;
   }
   .person {
     padding: 12px;
