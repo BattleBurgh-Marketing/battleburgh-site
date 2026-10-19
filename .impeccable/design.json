@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T14:07:33+00:00",
+  "title": "Design System: Battleburgh",
+  "extensions": {
+    "colorMeta": {
+      "film": {
+        "role": "neutral",
+        "displayName": "Drafting Film",
+        "canonical": "oklch(93.9% 0.007 97.4)",
+        "tonalRamp": [
+          "oklch(15% 0.007 97.4)",
+          "oklch(26% 0.007 97.4)",
+          "oklch(37% 0.007 97.4)",
+          "oklch(48% 0.007 97.4)",
+          "oklch(59% 0.007 97.4)",
+          "oklch(70% 0.007 97.4)",
+          "oklch(82% 0.007 97.4)",
+          "oklch(95% 0.007 97.4)"
+        ]
+      },
+      "film-deep": {
+        "role": "neutral",
+        "displayName": "Film Shade",
+        "canonical": "oklch(91.2% 0.008 98.9)",
+        "tonalRamp": [
+          "oklch(15% 0.008 98.9)",
+          "oklch(26% 0.008 98.9)",
+          "oklch(37% 0.008 98.9)",
+          "oklch(48% 0.008 98.9)",
+          "oklch(59% 0.008 98.9)",
+          "oklch(70% 0.008 98.9)",
+          "oklch(82% 0.008 98.9)",
+          "oklch(95% 0.008 98.9)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Drawing Ink",
+        "canonical": "oklch(19.6% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(59% 0.000 89.9)",
+          "oklch(70% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Two",
+        "canonical": "oklch(38.2% 0.007 95.2)",
+        "tonalRamp": [
+          "oklch(15% 0.007 95.2)",
+          "oklch(26% 0.007 95.2)",
+          "oklch(37% 0.007 95.2)",
+          "oklch(48% 0.007 95.2)",
+          "oklch(59% 0.007 95.2)",
+          "oklch(70% 0.007 95.2)",
+          "oklch(82% 0.007 95.2)",
+          "oklch(95% 0.007 95.2)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink Three",
+        "canonical": "oklch(49.9% 0.008 97.5)",
+        "tonalRamp": [
+          "oklch(15% 0.008 97.5)",
+          "oklch(26% 0.008 97.5)",
+          "oklch(37% 0.008 97.5)",
+          "oklch(48% 0.008 97.5)",
+          "oklch(59% 0.008 97.5)",
+          "oklch(70% 0.008 97.5)",
+          "oklch(82% 0.008 97.5)",
+          "oklch(95% 0.008 97.5)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "oklch(28.8% 0.004 106.6)",
+        "tonalRamp": [
+          "oklch(15% 0.004 106.6)",
+          "oklch(26% 0.004 106.6)",
+          "oklch(37% 0.004 106.6)",
+          "oklch(48% 0.004 106.6)",
+          "oklch(59% 0.004 106.6)",
+          "oklch(70% 0.004 106.6)",
+          "oklch(82% 0.004 106.6)",
+          "oklch(95% 0.004 106.6)"
+        ]
+      },
+      "hatch": {
+        "role": "neutral",
+        "displayName": "Hatch",
+        "canonical": "oklch(78.1% 0.010 100.0)",
+        "tonalRamp": [
+          "oklch(15% 0.010 100.0)",
+          "oklch(26% 0.010 100.0)",
+          "oklch(37% 0.010 100.0)",
+          "oklch(48% 0.010 100.0)",
+          "oklch(59% 0.010 100.0)",
+          "oklch(70% 0.010 100.0)",
+          "oklch(82% 0.010 100.0)",
+          "oklch(95% 0.010 100.0)"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Plotter Red",
+        "canonical": "oklch(53.9% 0.201 25.1)",
+        "tonalRamp": [
+          "oklch(15% 0.071 25.1)",
+          "oklch(26% 0.108 25.1)",
+          "oklch(37% 0.145 25.1)",
+          "oklch(48% 0.182 25.1)",
+          "oklch(59% 0.192 25.1)",
+          "oklch(70% 0.155 25.1)",
+          "oklch(82% 0.115 25.1)",
+          "oklch(95% 0.071 25.1)"
+        ]
+      },
+      "red-deep": {
+        "role": "primary",
+        "displayName": "Deep Plotter Red",
+        "canonical": "oklch(46.0% 0.173 25.1)",
+        "tonalRamp": [
+          "oklch(15% 0.062 25.1)",
+          "oklch(26% 0.094 25.1)",
+          "oklch(37% 0.125 25.1)",
+          "oklch(48% 0.157 25.1)",
+          "oklch(59% 0.166 25.1)",
+          "oklch(70% 0.134 25.1)",
+          "oklch(82% 0.099 25.1)",
+          "oklch(95% 0.062 25.1)"
+        ]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Control Blue",
+        "canonical": "oklch(51.9% 0.223 264.5)",
+        "tonalRamp": [
+          "oklch(15% 0.078 264.5)",
+          "oklch(26% 0.119 264.5)",
+          "oklch(37% 0.160 264.5)",
+          "oklch(48% 0.201 264.5)",
+          "oklch(59% 0.212 264.5)",
+          "oklch(70% 0.171 264.5)",
+          "oklch(82% 0.127 264.5)",
+          "oklch(95% 0.078 264.5)"
+        ]
+      },
+      "blue-deep": {
+        "role": "secondary",
+        "displayName": "Deep Control Blue",
+        "canonical": "oklch(43.7% 0.190 264.6)",
+        "tonalRamp": [
+          "oklch(15% 0.067 264.6)",
+          "oklch(26% 0.102 264.6)",
+          "oklch(37% 0.137 264.6)",
+          "oklch(48% 0.172 264.6)",
+          "oklch(59% 0.181 264.6)",
+          "oklch(70% 0.146 264.6)",
+          "oklch(82% 0.108 264.6)",
+          "oklch(95% 0.067 264.6)"
+        ]
+      },
+      "on-accent": {
+        "role": "neutral",
+        "displayName": "On-Accent White",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(59% 0.000 89.9)",
+          "oklch(70% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Society name in the title block only; 15.5vw on phones."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Zone view titles and the committee title, coloured by tone."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "First-viewport view links; same band for team titles, the email cell and the footer call."
+      },
+      "caps": {
+        "displayName": "Caps",
+        "purpose": "Tagline, social labels, person names, footer links (20-24px)."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Nav links and buttons."
+      },
+      "field-label": {
+        "displayName": "Field Label",
+        "purpose": "Names a field: What you'd do, Skills, Lead, committee role."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Summary paragraph opening each bot zone, max 46ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading copy with tabular numerals."
+      },
+      "label": {
+        "displayName": "Mono Label",
+        "purpose": "Captions, drawing number, title-block meta, session."
+      },
+      "spec": {
+        "displayName": "Mono Spec",
+        "purpose": "Specs beside view titles and in view links."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ruling",
+        "value": "1px 0 0 var(--rule), 0 1px 0 var(--rule), 1px 1px 0 var(--rule)",
+        "purpose": "Zero-blur hairline rulings between committee cells. Lines, not depth."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing; all hover and draw-in transitions."
+      },
+      {
+        "name": "hover-fill",
+        "value": "200ms",
+        "purpose": "Background shift on buttons, nav and social cells (250ms on view links and the email cell)."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "300ms",
+        "purpose": "Arrow translates 2-4px along its direction on parent hover."
+      },
+      {
+        "name": "trace-frame",
+        "value": "1100ms",
+        "purpose": "Photo frame stroke draws on, below-fold views only."
+      },
+      {
+        "name": "plot-photo",
+        "value": "1000ms, delay 450ms",
+        "purpose": "Image wipes in left to right after the frame."
+      },
+      {
+        "name": "leader-extend",
+        "value": "900ms, delay 100ms",
+        "purpose": "Leader line scales out from its dot terminal."
+      },
+      {
+        "name": "balloon-land",
+        "value": "500ms, delay 650ms",
+        "purpose": "Balloon scales from 0.6 and fades in. All motion is removed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "760px"
+      },
+      {
+        "name": "tablet",
+        "value": "1180px"
+      },
+      {
+        "name": "sheet-max",
+        "value": "1680px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Email Button",
+      "kind": "button",
+      "refersTo": "button-email",
+      "description": "Strip email action; every email action is solid red with white caps.",
+      "html": "<a class=\"ds-btn-email\" href=\"#\">Email us <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a>",
+      "css": ".ds-btn-email { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; background: var(--red, #c9202a); color: #fff; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none; border-radius: 0; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-email:hover { background: var(--red-deep, #a3161f); } .ds-btn-email:hover .ds-arrow { transform: translateX(3px); } .ds-btn-email:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; } .ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    },
+    {
+      "name": "Join Button (blue)",
+      "kind": "button",
+      "refersTo": "button-join-blue",
+      "description": "Per-team join action in the team's tone; blue for Unibot/control.",
+      "html": "<a class=\"ds-btn-join ds-tone-blue\" href=\"#\"><span>Join Unibot</span><svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a>",
+      "css": ".ds-tone-blue { --tone: var(--blue, #2457e6); --tone-deep: var(--blue-deep, #1a43b8); } .ds-btn-join { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--tone); color: #fff; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; text-decoration: none; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-join:hover { background: var(--tone-deep); } .ds-btn-join:hover .ds-arrow { transform: translateX(3px); } .ds-btn-join:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; } .ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    },
+    {
+      "name": "Join Button (red)",
+      "kind": "button",
+      "refersTo": "button-join-red",
+      "description": "Per-team join action for fighting-bot teams.",
+      "html": "<a class=\"ds-btn-join-red\" href=\"#\"><span>Join Weapons</span><svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a>",
+      "css": ".ds-btn-join-red { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--red, #c9202a); color: #fff; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; text-decoration: none; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-join-red:hover { background: var(--red-deep, #a3161f); } .ds-btn-join-red:hover .ds-arrow { transform: translateX(3px); } .ds-btn-join-red:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; } .ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    },
+    {
+      "name": "Strip Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky top strip: mark, wordmark, drawing number, three caps links, red email button.",
+      "html": "<header class=\"ds-strip\"><span class=\"ds-strip-name\">Battleburgh</span><span class=\"ds-strip-dwg\">DWG BB-GA-001</span><nav><a href=\"#\">About</a><a href=\"#\">The Bots</a><a href=\"#\">Committee</a></nav><a class=\"ds-strip-mail\" href=\"#\">Email us <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></a></header>",
+      "css": ".ds-strip { display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 20px; background: var(--film, #ecebe6); color: var(--ink, #151515); border-bottom: 1px solid var(--rule, #2b2b29); } .ds-strip-name { font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; } .ds-strip-dwg { margin-right: auto; padding-left: 12px; border-left: 1px solid var(--hatch, #b9b8b1); font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2, #44433f); } .ds-strip nav { display: flex; gap: 4px; } .ds-strip nav a, .ds-strip-mail { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; color: inherit; text-decoration: none; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.03em; text-transform: uppercase; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-strip nav a:hover { background: var(--film-deep, #e3e2dc); } .ds-strip nav a:focus-visible, .ds-strip-mail:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; } .ds-strip-mail { background: var(--red, #c9202a); color: #fff; } .ds-strip-mail:hover { background: var(--red-deep, #a3161f); } .ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    },
+    {
+      "name": "Skill Chip",
+      "kind": "chip",
+      "refersTo": "chip-skill",
+      "description": "Static rule-bordered caps chip listing skills.",
+      "html": "<ul class=\"ds-chips\"><li>Programming</li><li>Electronics</li><li>Sensors</li></ul>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; } .ds-chips li { padding: 3px 9px; border: 1px solid var(--rule, #2b2b29); color: var(--ink, #151515); font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Ruled Cell Grid",
+      "kind": "card",
+      "refersTo": "cell",
+      "description": "Film cells over a 1px gap on rule colour, so gaps read as hairlines.",
+      "html": "<div class=\"ds-ruled\"><div class=\"ds-cell\"><p class=\"ds-field-label\">What you’d do</p><p>Write and test control code</p></div><div class=\"ds-cell\"><p class=\"ds-field-label\">Lead</p><p class=\"ds-caps\">To be announced</p></div></div>",
+      "css": ".ds-ruled { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule, #2b2b29); border: 2px solid var(--ink, #151515); } .ds-cell { background: var(--film, #ecebe6); color: var(--ink, #151515); padding: 28px; font-family: var(--font-body, 'Barlow'), system-ui, sans-serif; font-size: 17px; line-height: 1.55; } .ds-cell p { margin: 0; } .ds-field-label { font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-2, #44433f); margin-bottom: 8px !important; } .ds-caps { font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 600; font-size: 20px; text-transform: uppercase; }"
+    },
+    {
+      "name": "View Title",
+      "kind": "custom",
+      "refersTo": "balloon",
+      "description": "Tone headline, leader line with dot terminal, circled balloon carrying the zone letter, mono spec.",
+      "html": "<div class=\"ds-view-title\"><h2>Unibot</h2><span class=\"ds-leader\"></span><span class=\"ds-balloon\">B</span><p class=\"ds-view-spec\"><span>View B</span><span>Autonomous · Unibots competition</span></p></div>",
+      "css": ".ds-view-title { --tone: var(--blue, #2457e6); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 20px; padding: 30px 28px 22px; background: var(--film, #ecebe6); } .ds-view-title h2 { grid-row: 1 / span 2; margin: 0; font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 700; font-size: clamp(3rem, 8vw, 7.5rem); line-height: 0.84; text-transform: uppercase; color: var(--tone); } .ds-leader { position: relative; height: 1px; background: var(--ink, #151515); } .ds-leader::before { content: ''; position: absolute; left: -3px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--ink, #151515); } .ds-balloon { display: inline-grid; place-items: center; width: 52px; height: 52px; border: 1.5px solid var(--ink, #151515); border-radius: 50%; font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 18px; font-weight: 500; color: var(--ink, #151515); } .ds-view-spec { grid-column: 2 / -1; justify-self: end; display: flex; gap: 14px; margin: 0; font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink, #151515); } .ds-view-spec span:first-child { color: var(--ink-2, #44433f); font-size: 11.5px; letter-spacing: 0.06em; }"
+    },
+    {
+      "name": "View Link",
+      "kind": "custom",
+      "refersTo": "cell",
+      "description": "First-viewport programme row: tone title, small balloon, mono spec with arrow; tints toward tone on hover.",
+      "html": "<a class=\"ds-view-link\" href=\"#\"><span class=\"ds-vl-title\">Antweight</span><span class=\"ds-vl-balloon\">C</span><span class=\"ds-vl-spec\">150 g limit · Team of 4 <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></span></a>",
+      "css": ".ds-view-link { --tone: var(--red, #c9202a); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 6px 16px; padding: 18px 22px 18px 24px; background: var(--film, #ecebe6); color: var(--ink, #151515); text-decoration: none; transition: background-color 250ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-view-link:hover { background: color-mix(in srgb, var(--tone) 7%, var(--film, #ecebe6)); } .ds-view-link:hover .ds-arrow { transform: translateX(4px); } .ds-view-link:focus-visible { outline: 2px solid var(--blue, #2457e6); outline-offset: 2px; } .ds-vl-title { font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 700; font-size: clamp(2rem, 3.2vw, 3.25rem); line-height: 0.9; text-transform: uppercase; color: var(--tone); } .ds-vl-balloon { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 1.5px solid var(--ink, #151515); border-radius: 50%; font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 12.5px; font-weight: 500; } .ds-vl-spec { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2, #44433f); } .ds-vl-spec .ds-arrow { color: var(--tone); width: 18px; height: 18px; } .ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    },
+    {
+      "name": "Photo View (empty)",
+      "kind": "custom",
+      "refersTo": "cell",
+      "description": "Traced photo frame; a null photo renders as 45-degree section hatching with a mono tag.",
+      "html": "<figure class=\"ds-photo\"><div class=\"ds-photo-plot\"><div class=\"ds-photo-empty\"><span>Photo to add</span></div></div><figcaption>Unibot · 1</figcaption></figure>",
+      "css": ".ds-photo { display: grid; gap: 8px; margin: 0; width: 320px; } .ds-photo-plot { position: relative; aspect-ratio: 4 / 3; outline: 1px solid var(--ink, #151515); outline-offset: -1px; } .ds-photo-empty { position: absolute; inset: 0; display: grid; place-items: center; background: repeating-linear-gradient(45deg, var(--hatch, #b9b8b1) 0 1px, transparent 1px 10px), var(--film, #ecebe6); } .ds-photo-empty span { padding: 6px 10px; background: var(--film, #ecebe6); border: 1px solid var(--hatch, #b9b8b1); font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3, #64635e); } .ds-photo figcaption { font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 11.5px; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2, #44433f); }"
+    },
+    {
+      "name": "Email Cell",
+      "kind": "card",
+      "refersTo": "email-cell",
+      "description": "Title block's red email cell: title, note, mono address behind a white hairline.",
+      "html": "<a class=\"ds-email-cell\" href=\"#\"><span class=\"ds-ec-title\">Email us</span><span class=\"ds-ec-note\">Join a team or sponsor the society</span><span class=\"ds-ec-addr\">battleburgh@example.com <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\"/></svg></span></a>",
+      "css": ".ds-email-cell { display: flex; flex-direction: column; gap: 10px; width: 200px; min-height: 260px; padding: 20px 20px 18px; background: var(--red, #c9202a); color: #fff; text-decoration: none; transition: background-color 250ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-email-cell:hover { background: var(--red-deep, #a3161f); } .ds-email-cell:hover .ds-arrow { transform: translateX(4px); } .ds-email-cell:focus-visible { outline: 2px solid var(--ink, #151515); outline-offset: -4px; } .ds-ec-title { font-family: var(--font-display, 'Barlow Condensed'), sans-serif; font-weight: 700; font-size: 3rem; line-height: 0.86; text-transform: uppercase; } .ds-ec-note { font-family: var(--font-body, 'Barlow'), system-ui, sans-serif; font-size: 15px; line-height: 1.35; } .ds-ec-addr { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 10px; border-top: 1px solid rgb(255 255 255 / 0.5); font-family: var(--font-mono, 'Azeret Mono'), ui-monospace, monospace; font-size: 11.5px; } .ds-arrow { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Drawing Sheet",
+    "overview": "The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a margin that carries zone references: column numbers 1 to 8 along the top and bottom edge, zone letters A to F down the left edge, one letter per section. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block with the drawing number (DWG BB-GA-001), revision and scale.\n\nDensity is that of a working drawing: many small labelled fields, big uppercase view titles, and real build photos plotted into traced frames. Colour is almost entirely ink on film. Two accent inks do the coding work: blue for the control/Unibot programme, red for the fighting bots and for every email action. Nothing is lifted, rounded or glowing; depth comes only from ruling and the 2px frame. The world rejects the dark neon combat-robot hero and the full-bleed-photo-under-headline society template.\n\nAll copy, links, photos and committee entries come from one file, `content/site.ts`; the page renders entirely from it. A photo set to `null` renders as a section-hatched \"Photo to add\" view, so missing imagery is drawn honestly rather than faked.",
+    "keyCharacteristics": [
+      "Light drafting-film ground with near-black ink; one 2px frame, everything else 1px hairlines.",
+      "An 8-column zone grid that the margin numbers literally label.",
+      "Zone letters A–F in the left margin; balloon letters on view titles match the zone they head.",
+      "Blue codes Unibot/control; red codes fighting bots and the email action.",
+      "Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for drawing numbers, specs and captions.",
+      "Square corners on every rectangle; circles only for balloons and leader terminals.",
+      "One signature motion: frames trace in, photos plot in, leaders extend, balloons land, once, below the fold only."
+    ],
+    "rules": [
+      {
+        "name": "The Coding Ink Rule",
+        "body": "Blue means control/Unibot; red means fighting bots or email. A colour is chosen by what the element belongs to, carried through a single `--tone` / `--tone-deep` pair set by `tone-blue` or `tone-red`. Never pick an accent for variety.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Email Rule",
+        "body": "Every email action is a solid red fill with white text. There is no outline or ghost email button, and red fills are not used for anything that is not email or a fighting-bot join action.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hatch Is Not Ink Rule",
+        "body": "Hatch (1.67:1 on film) draws dividers and hatching only; any text uses ink, ink-2 or ink-3.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lettered Caps Rule",
+        "body": "Every h1–h3, nav item, button and field label is uppercase Barlow Condensed. Sentence-case is for Barlow reading copy only.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Data Rule",
+        "body": "Azeret Mono carries drawing numbers, zones, specs, captions and the email address, never sentences of prose.",
+        "section": "typography"
+      },
+      {
+        "name": "The Line Weight Rule",
+        "body": "Hierarchy of structure is 2px ink, then 1px rule, then 1px hatch. No blur, no lift, no glow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** draw new sections as a zone: a 1px rule top edge, the next zone letter in the left margin, a View Title whose balloon carries the same letter.",
+      "**Do** build cell layouts as ruled grids (1px gap over `rule`, film cells) on the 8-column zone grid.",
+      "**Do** colour by programme: `tone-blue` for control/Unibot, `tone-red` for fighting bots; email is always red.",
+      "**Do** render every string, link and photo from `content/site.ts`, and let a `null` photo fall back to the hatched \"Photo to add\" view.",
+      "**Do** caption every photo view with a mono label, and keep imagery to real build and meeting photos.",
+      "**Do** keep the trace-in motion on `cubic-bezier(0.16, 1, 0.3, 1)`, once per element, below the fold only, and off under reduced motion."
+    ],
+    "donts": [
+      "**Don't** round rectangle corners; circles are reserved for balloons and leader terminals.",
+      "**Don't** use blurred or offset shadows for depth; box-shadow is allowed only as zero-blur 1px rulings.",
+      "**Don't** set text in `hatch`, or any text lighter than `ink-3` on film.",
+      "**Don't** use solid red or blue fills for surfaces or decoration; solid tone fills belong to email and join actions (blue also marks text selection).",
+      "**Don't** introduce a dark theme, neon glow or a headline set over a full-bleed photo.",
+      "**Don't** use glyph or icon-font arrows; use the inline stroked SVG arrow."
+    ]
+  }
+}
