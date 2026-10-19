@@ -16,6 +16,8 @@
 
 export type Photo = { src: string; alt: string } | null;
 
+export type Sheet = "halloween" | "light" | "dark";
+
 export type Person = {
     role: string;
     /** Leave as "" until the role is filled — the site shows "To be announced". */
@@ -51,6 +53,11 @@ export const site = {
     year: 2026,
     /** Academic year shown next to the committee. */
     session: "2026–27",
+
+    /** Theme a first-time visitor sees: "halloween", "light", "dark", or
+     *  "system" (follows their device's light/dark setting). The button in
+     *  the top bar cycles Halloween → Light → Dark, and remembers the choice. */
+    theme: "halloween" as Sheet | "system",
 
     /** ── LINKS ─────────────────────────────────────────────────────────── */
     links: {

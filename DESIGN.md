@@ -174,7 +174,7 @@ Density is that of a working drawing: many small labelled fields, big uppercase 
 All copy, links, photos and committee entries come from one file, `content/site.ts`; the page renders entirely from it. A photo set to `null` renders as a section-hatched "Photo to add" view, so missing imagery is drawn honestly rather than faked.
 
 **Key Characteristics:**
-- Light drafting-film ground with near-black ink (a chalk-on-graphite night sheet follows the system or the strip toggle); one 2px frame, everything else 1px hairlines.
+- Light drafting-film ground with near-black ink (plus a chalk-on-graphite Night sheet and a seasonal Hallowe'en sheet, cycled from the strip toggle); one 2px frame, everything else 1px hairlines.
 - An 8-column zone grid that the margin numbers literally label.
 - Zone letters A–F in the left margin; balloon letters on view titles match the zone they head.
 - Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.
@@ -200,11 +200,14 @@ Ink and drafting film, with two coding inks used by meaning, never by decoration
 - **Ink Three** (`ink-3`): tertiary text: zone numbers and letters, placeholder captions. Holds 4.7:1 on film; it is the lightest colour allowed for text.
 - **Rule** (`rule`): the 1px hairlines that divide every ruled grid, the strip's bottom edge, skill-chip and person-photo borders.
 - **Hatch** (`hatch`): section-hatching lines, margin zone dividers, field-list dividers, footer link underlines. Never text.
-- **On-Accent White** (`on-accent`): text on red and blue fills only.
+- **On-Accent White** (`on-accent`): text on red and blue fills only (the `--on-accent` token; it turns dark on the Hallowe'en sheet).
 - **Blue Ink** (`blue-ink`): blue used as small text or an icon (footer link hover, profile and sheet-toggle hover). Equals `blue` on the light sheet; lifts on the night sheet so it still reads.
 
+### Sheets (themes)
+The drawing ships on three sheets: **Hallowe'en**, **Light** and **Night**. Every role keeps its job on each; only the values change, so components never branch on theme. `site.theme` in `content/site.ts` picks the sheet a first visit sees (`"halloween"`, `"light"`, `"dark"`, or `"system"` to follow the device). The server renders that as `data-theme` on `<html>`; the strip's sheet toggle cycles Hallowe'en → Light → Night, saves the choice in `localStorage` (`sheet`), and an inline script in `<head>` re-applies it, and the matching browser theme colour, before paint.
+
 ### Night Sheet (dark theme)
-The same drawing in chalk on graphite. Every role keeps its job; only the values change, so components never branch on theme. It follows the system setting until the visitor flips the strip's sheet toggle, which saves the choice in `localStorage` (`sheet`) and sets `data-theme` on `<html>`; an inline script in `<head>` applies it before paint.
+The same drawing in chalk on graphite.
 
 | Token | Night value | Note |
 |---|---|---|
@@ -221,6 +224,25 @@ The same drawing in chalk on graphite. Every role keeps its job; only the values
 | red-deep / blue-deep | unchanged | hover fills |
 
 Red and blue as text only ever appear at Title size or larger, where 3:1 is the floor.
+
+### Hallowe'en Sheet (seasonal; currently the default)
+Candle-bone ink on midnight aubergine. Pumpkin takes over Plotter Red's coding job (fighting bots, every email action), Ectoplasm Green takes over Control Blue's (Unibot, focus, selection). Both are bright, so the coding rules invert one detail: fills carry dark `on-accent` text, and hover brightens a fill instead of darkening it.
+
+| Token | Hallowe'en value | Note |
+|---|---|---|
+| film | `#120d17` | midnight aubergine |
+| film-deep | `#1e1626` | hover fill, empty image ground |
+| ink | `#f2e6d0` | candle bone, 15.5:1 |
+| ink-2 | `#c8b9a8` | 10:1 |
+| ink-3 | `#9c8d86` | 6:1 |
+| rule | `#8a7896` | dusk-violet hairlines |
+| hatch | `#3b2d47` | 1.5:1, dividers only |
+| red | `#f2741b` | Pumpkin; 6.7:1 on film, dark text on it 6.7:1 |
+| red-deep | `#ff8f3d` | hover brightens |
+| blue | `#86d94f` | Ectoplasm Green; 11:1 on film |
+| blue-deep | `#a3ea6f` | hover brightens |
+| blue-ink | `#9be36a` | small green text and icons |
+| on-accent | `#120d17` | dark text on pumpkin and green fills |
 
 ### Named Rules
 **The Coding Ink Rule.** Blue means control/Unibot; red means fighting bots or email. A colour is chosen by what the element belongs to, carried through a single `--tone` / `--tone-deep` pair set by `tone-blue` or `tone-red`. Never pick an accent for variety.
@@ -320,7 +342,10 @@ A field label over hatch-ruled rows (7px vertical padding), or over inline skill
 A committee member's LinkedIn link: a 32px square cell with a 1px rule border holding the 18px stroked LinkedIn mark in ink, set at the right end of the name row. Hover fills film-deep and turns the mark blue over 200ms. It renders only when that person's `linkedin` URL is filled in `content/site.ts`, and is labelled "[Name] on LinkedIn" for screen readers.
 
 ### Sheet Toggle
-The strip's last item: a 36px square cell (34px on phones) with a 1px rule border holding a stroked disc whose filled half swings round 180° over 400ms when the sheet flips. Hover fills film-deep and turns the mark blue-ink. It is a `button` labelled "Dark theme" with `aria-pressed`.
+The strip's last item: a 36px square cell (34px on phones) with a 1px rule border holding a stroked 16-unit mark of the sheet you're on: an open disc with a centre point (Light), a half-inked disc (Night), a stroked jack-o'-lantern face with a stem (Hallowe'en). The mark is chosen in CSS from `data-theme`, so it is right before hydration. Hover fills film-deep and turns the mark blue-ink. Each press advances Hallowe'en → Light → Night; the button's label names the current sheet and the next one ("Theme: Hallowe'en. Switch to Light").
+
+### Cobweb (Hallowe'en sheet only)
+A cobweb strung in the top-right corner of the first-viewport photo view, drawn in the sheet's own 1px stroke in rule colour at 75%: seven radials and four sagging rings. A spider (filled body, eight square-capped stroked legs) hangs from the web on an ink-3 thread and lets itself down and back up over 5s on the plot easing. 112px wide (84px on phones), decorative (`aria-hidden`), never over text, still under reduced motion. It exists only in the Hallowe'en sheet.
 
 ### Email Cell
 The title block's eighth column: a red cell with an EMAIL US title in the Title band, a 15px note, and the mono address pushed to the bottom behind a 50% white hairline. Becomes a horizontal row at tablet width.

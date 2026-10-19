@@ -14,6 +14,7 @@
   --blue: #2457e6;
   --blue-deep: #1a43b8;
   --blue-ink: #2457e6; /* blue as small text or icon */
+  --on-accent: #ffffff; /* text on red and blue fills */
 
   --m: 40px; /* sheet margin that carries the zone markers */
   --pad: 28px;
@@ -25,9 +26,9 @@
 }
 
 /* Night sheet: the same drawing in chalk on graphite. Follows the system
-   unless the visitor picks a sheet with the strip's toggle. */
+   when no sheet is set (site.theme "system" and no saved choice). */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme]) {
     --film: #151514;
     --film-deep: #21211f;
     --ink: #e8e7e2;
@@ -61,6 +62,27 @@
   color-scheme: dark;
 }
 
+/* Hallowe'en sheet: candle-bone ink on midnight aubergine. Pumpkin takes the
+   fighting-bot / email code, ectoplasm green takes control. Fills carry dark
+   text, and hover brightens rather than darkens. */
+:root[data-theme="halloween"] {
+  --film: #120d17;
+  --film-deep: #1e1626;
+  --ink: #f2e6d0;
+  --ink-2: #c8b9a8;
+  --ink-3: #9c8d86;
+  --rule: #8a7896;
+  --hatch: #3b2d47;
+  --red: #f2741b;
+  --red-deep: #ff8f3d;
+  --blue: #86d94f;
+  --blue-deep: #a3ea6f;
+  --blue-ink: #9be36a;
+  --on-accent: #120d17;
+
+  color-scheme: dark;
+}
+
 @theme inline {
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -86,7 +108,7 @@ body {
 
 ::selection {
   background: var(--blue);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 a {
@@ -281,7 +303,7 @@ h3 {
 }
 .strip-mail {
   background: var(--red);
-  color: #fff;
+  color: var(--on-accent);
 }
 .strip-mail:hover {
   background: var(--red-deep);
@@ -311,15 +333,26 @@ h3 {
 .sheet-toggle .icon-fill {
   fill: currentColor;
   stroke: none;
-  transform-origin: 8px 8px;
-  transition: transform 400ms var(--ease);
 }
-:root[data-theme="dark"] .sheet-toggle .icon-fill {
-  transform: rotate(180deg);
+/* The mark shows the sheet you're on: open disc, half-inked disc, lantern. */
+.sheet-toggle .i-dark,
+.sheet-toggle .i-halloween {
+  display: none;
+}
+:root[data-theme="dark"] .sheet-toggle .i-dark,
+:root[data-theme="halloween"] .sheet-toggle .i-halloween {
+  display: inline;
+}
+:root[data-theme="dark"] .sheet-toggle .i-light,
+:root[data-theme="halloween"] .sheet-toggle .i-light {
+  display: none;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .sheet-toggle .icon-fill {
-    transform: rotate(180deg);
+  :root:not([data-theme]) .sheet-toggle .i-dark {
+    display: inline;
+  }
+  :root:not([data-theme]) .sheet-toggle .i-light {
+    display: none;
   }
 }
 
@@ -343,6 +376,64 @@ h3 {
 .hero-views {
   grid-column: 6 / 9;
   grid-template-rows: repeat(3, 1fr);
+}
+
+/* Hallowe'en only: a cobweb strung in the photo view's top-right corner, with
+   a spider letting itself down on a thread. Drawn in the sheet's own stroke. */
+.hero-photo {
+  position: relative;
+}
+.haunt {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 112px;
+  height: 150px;
+  overflow: visible;
+  pointer-events: none;
+  color: var(--rule);
+}
+:root[data-theme="halloween"] .haunt {
+  display: block;
+}
+.haunt-web {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.75;
+}
+.haunt-thread {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transform-origin: 43.7px 28.5px;
+  animation: haunt-thread 5s var(--ease) infinite alternate;
+}
+.haunt-spider {
+  color: var(--ink);
+  animation: haunt-spider 5s var(--ease) infinite alternate;
+}
+.haunt-spider path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: square;
+}
+.haunt-spider ellipse {
+  fill: currentColor;
+}
+@keyframes haunt-thread {
+  to {
+    transform: scaleY(1.26);
+  }
+}
+@keyframes haunt-spider {
+  to {
+    transform: translateY(30.5px);
+  }
 }
 
 .view-link {
@@ -480,7 +571,7 @@ h3 {
   gap: 10px;
   padding: 20px 20px 18px;
   background: var(--red);
-  color: #fff;
+  color: var(--on-accent);
   transition: background-color 250ms var(--ease);
 }
 .tb-email:hover {
@@ -508,7 +599,7 @@ h3 {
   justify-content: space-between;
   gap: 8px;
   padding-top: 10px;
-  border-top: 1px solid rgb(255 255 255 / 0.5);
+  border-top: 1px solid color-mix(in srgb, var(--on-accent) 50%, transparent);
   font-family: var(--font-mono), monospace;
   font-size: 11.5px;
   overflow-wrap: normal;
@@ -788,7 +879,7 @@ h3 {
   gap: 8px;
   padding: 9px 14px;
   background: var(--tone);
-  color: #fff;
+  color: var(--on-accent);
   font-family: var(--font-display), sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -947,7 +1038,7 @@ h3 {
   gap: 10px;
   padding: 12px 16px;
   background: var(--red);
-  color: #fff;
+  color: var(--on-accent);
   font-family: var(--font-mono), monospace;
   font-size: 14px;
   overflow-wrap: anywhere;
@@ -1081,6 +1172,10 @@ h3 {
     width: 34px;
     height: 34px;
   }
+  .haunt {
+    width: 84px;
+    height: 112px;
+  }
   .strip nav a {
     padding: 0 8px;
     font-size: 16px;
@@ -1114,7 +1209,7 @@ h3 {
   .tb-email-addr {
     margin: 0;
     padding-top: 10px;
-    border-top: 1px solid rgb(255 255 255 / 0.5);
+    border-top: 1px solid color-mix(in srgb, var(--on-accent) 50%, transparent);
   }
   .hero-photo {
     order: 4;
@@ -1231,6 +1326,10 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .haunt-thread,
+  .haunt-spider {
+    animation: none;
   }
   *,
   *::before,
