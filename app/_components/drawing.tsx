@@ -15,6 +15,16 @@ export function Arrow({ external = false }: { external?: boolean }) {
   );
 }
 
+/** LinkedIn mark drawn in the arrow's stroke: a square frame around "in". */
+export function LinkedInIcon() {
+  return (
+    <svg className="icon" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M1.5 1.5h13v13h-13zM5 7v5M8 12V7M8 9.25a2 2 0 0 1 4 0V12" />
+      <rect className="icon-dot" x="4.2" y="3.7" width="1.6" height="1.6" />
+    </svg>
+  );
+}
+
 /** A framed photo slot. The frame is traced on entry, then the image is plotted in. */
 export function PhotoView({
   photo,

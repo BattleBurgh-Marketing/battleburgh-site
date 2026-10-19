@@ -4,6 +4,7 @@ import {
   Arrow,
   FieldList,
   JoinLink,
+  LinkedInIcon,
   PhotoView,
   ViewTitle,
   mailto,
@@ -335,9 +336,23 @@ export default function Home() {
                       )}
                     </div>
                     <p className="field-label">{p.role}</p>
-                    <p className={p.name ? "person-name" : "person-name tba"}>
-                      {p.name || "To be announced"}
-                    </p>
+                    <div className="person-row">
+                      <p className={p.name ? "person-name" : "person-name tba"}>
+                        {p.name || "To be announced"}
+                      </p>
+                      {p.linkedin && (
+                        <a
+                          className="person-linkedin"
+                          href={p.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${p.name || p.role} on LinkedIn`}
+                          title="LinkedIn"
+                        >
+                          <LinkedInIcon />
+                        </a>
+                      )}
+                    </div>
                   </li>
                 )),
               )}

@@ -22,6 +22,7 @@ Edinburgh's first robot-fighting society. In its first semester it designed and 
 - Competition categories this year: **Unibot** (Unibots competition, run by the control team), **Antweight** (team of 4), **Beetleweight** (sub-teams: weapons, chassis, drive).
 - Committee roles (10): President, Vice President, Secretary, Treasurer, Antweight bot lead, Control lead (Unibots), Beetleweight Weapons lead, Chassis lead and Drive lead, Social Media lead.
 - Channels: Instagram, Linktree, email, Discord. EUSA (Edinburgh University Students' Association) is the affiliated body.
+- Committee members each have an optional LinkedIn profile link, shown with their entry. It does two jobs: sponsors see named, real people behind the society, and students get a direct way to reach a lead. Email stays the primary action.
 
 ## Capabilities and Constraints
 - Single-page site. Sections in order: top bar with links (title, the three bot sections, committee); title (name, purpose, social links); Unibot / control; Antweight; Beetleweight (three sub-teams: weapons, chassis, drive); committee; footer with all links and socials.
@@ -35,7 +36,7 @@ Edinburgh's first robot-fighting society. In its first semester it designed and 
 - Visual references the user gathered: `.claude/design1.png` through `design5.png`/`.gif`/`.jpg`/`.webp`. They are inputs for new-work, not binding rules.
 
 ## Evidence on Hand
-- Committee photos and names (to be supplied).
+- Committee photos, names and LinkedIn URLs (to be supplied).
 - Photos of meetings and of robot builds in progress. These are the only kinds of imagery available.
 - **Absent and must not be fabricated:** competition results or placings, sponsors or partner logos, testimonials, member counts, staged or hero "robot in arena" shots.
 

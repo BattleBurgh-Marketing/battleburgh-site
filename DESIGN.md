@@ -135,6 +135,13 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.none}"
     padding: "3px 9px"
+  icon-link:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.none}"
+    size: "32px"
+  icon-link-hover:
+    backgroundColor: "{colors.film-deep}"
+    textColor: "{colors.blue}"
   balloon:
     textColor: "{colors.ink}"
     rounded: "{rounded.circle}"
@@ -242,7 +249,7 @@ The sheet is flat. Depth is conveyed only by line weight: the 2px ink frame and 
 
 ## Shapes
 
-Every rectangle has square corners: cells, buttons, chips, photo frames, the email cell. The only curves are the drawing's own: circular balloons (1.5px ink outline, 52px; 34px small; 42px on phones) and the 7px filled dot that terminates each leader line. Empty photo views are filled with 45° section hatching (1px hatch lines every 10px) with a small bordered mono tag. Arrows are inline 16-unit SVG strokes (1.6 width, square caps), never glyphs or icon fonts.
+Every rectangle has square corners: cells, buttons, chips, photo frames, the email cell. The only curves are the drawing's own: circular balloons (1.5px ink outline, 52px; 34px small; 42px on phones) and the 7px filled dot that terminates each leader line. Empty photo views are filled with 45° section hatching (1px hatch lines every 10px) with a small bordered mono tag. Arrows and icons are inline 16-unit SVG strokes (1.6 width, square caps), never glyphs or icon fonts. Brand marks are redrawn in that stroke rather than pasted as logos: LinkedIn is a stroked square frame around a stroked "in".
 
 ## Components
 
@@ -278,6 +285,9 @@ A framed slot with a 1px ink trace rectangle over the image and a mono caption b
 
 ### Field List
 A field label over hatch-ruled rows (7px vertical padding), or over inline skill chips.
+
+### Profile Link
+A committee member's LinkedIn link: a 32px square cell with a 1px rule border holding the 18px stroked LinkedIn mark in ink, set at the right end of the name row. Hover fills film-deep and turns the mark blue over 200ms. It renders only when that person's `linkedin` URL is filled in `content/site.ts`, and is labelled "[Name] on LinkedIn" for screen readers.
 
 ### Email Cell
 The title block's eighth column: a red cell with an EMAIL US title in the Title band, a 15px note, and the mono address pushed to the bottom behind a 50% white hairline. Becomes a horizontal row at tablet width.
