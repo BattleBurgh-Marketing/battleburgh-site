@@ -102,15 +102,16 @@ export const site = {
     /** ── ANTWEIGHT ─────────────────────────────────────────────────────── */
     antweight: {
         title: "Antweight",
-        spec: "150 g limit · team of 4",
+        spec: "250 g limit · team of 4",
         summary:
-            "A combat robot that weighs no more than 150 grams. Four people take it from first sketch to a working fighter, so everyone gets hands on with every part of the build.",
+            "This semester focuses on equipping members with the skills needed to design, prototype, and build their dream combat robot from scratch. Culminating in an internal tournament where teams of 4-5 fight it out with their weapons of choice, small teams ensure that everyone gets the chance to gain hands-on experience to produce an antweight scalable to other weight classes for future tournaments.",
         work: [
-            "Design the robot in CAD and 3D-print the parts",
-            "Pick and fit motors, battery and receiver",
-            "Repair, rebuild and improve between fights",
+            "design your robot from scratch; experience the entire engineering workflow from design to final product",
+            "gain cadding skills; both structural and electrical",
+            "gain hands-on experience with soldering and assembly",
+            "get familiar with the combat robotics scene and try out new ideas for a little, budget-friendly robot"
         ],
-        skills: ["CAD", "3D printing", "Soldering", "Driving"],
+        skills: ["CAD", "3D printing", "Soldering", "Assembly", "Design", "Cooperation"],
         leadRole: "Antweight Lead",
         photos: [] as Photo[], // add up to 3, e.g. [{ src: "/photos/x.jpg", alt: "…" }]
     },
@@ -136,7 +137,7 @@ export const site = {
                 leadRole: "Weapons Lead",
                 photo: {
                     src: "/photos/weapons.jpg",
-                    alt: "weapons"
+                    alt: "weapons design"
                 } as Photo,
             },
             {
@@ -163,7 +164,10 @@ export const site = {
                 ],
                 skills: ["Electronics", "Power systems", "Driving"],
                 leadRole: "Drive Lead",
-                photo: null,
+                photo: {
+                    src: "/photos/drive.webp",
+                    alt: "wheels being 3D printed"
+                },
             },
         ] as Team[],
     },
@@ -177,19 +181,19 @@ export const site = {
         {
             group: "Executive",
             people: [
-                { role: "President", name: "me", linkedin: "", photo: null },
-                { role: "Vice President", name: "", linkedin: "", photo: null },
-                { role: "Secretary", name: "", linkedin: "", photo: null },
+                { role: "President", name: "Calvin Lee", linkedin: "", photo: null },
+                { role: "Vice President", name: "Abdulwahid Yaich El Yahyaoui", linkedin: "", photo: null },
+                { role: "Secretary", name: "Fanhua (David) Huang", linkedin: "", photo: null },
                 { role: "Treasurer", name: "", linkedin: "", photo: null },
             ],
         },
         {
             group: "Robot leads",
             people: [
-                { role: "Control Lead", name: "", linkedin: "", photo: null },
-                { role: "Antweight Lead", name: "", linkedin: "", photo: null },
-                { role: "Weapons Lead", name: "", linkedin: "", photo: null },
-                { role: "Chassis Lead", name: "", linkedin: "", photo: null },
+                { role: "Control Lead", name: "Kyle Oaks", linkedin: "", photo: null },
+                { role: "Antweight Lead", name: "Ray", linkedin: "", photo: null },
+                { role: "Weapons Lead", name: "Leonardo Maffei Mercalli", linkedin: "https://www.linkedin.com/in/leonardo-maffei-mercalli-85546724b/?isSelfProfile=false", photo: null },
+                { role: "Chassis Lead", name: "Ishaq Imran", linkedin: "", photo: null },
                 { role: "Drive Lead", name: "", linkedin: "", photo: null },
             ],
         },

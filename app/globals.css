@@ -16,7 +16,8 @@
   --blue-ink: #2457e6; /* blue as small text or icon */
   --on-accent: #ffffff; /* text on red and blue fills */
 
-  --m: 40px; /* sheet margin that carries the zone markers */
+  --m: 40px; /* sheet margin around the frame */
+  --m-y: 28px;
   --pad: 28px;
   --frame: 2px;
   --strip-h: 60px;
@@ -195,29 +196,11 @@ h3 {
   top: 12px;
 }
 
-/* ── Sheet, frame and zone markers ──────────────────────────────────────── */
+/* ── Sheet and frame ──────────────────────────────────────────────────────── */
 .sheet {
-  padding: 0 var(--m);
+  padding: var(--m-y) var(--m);
   max-width: 1680px;
   margin: 0 auto;
-}
-
-.zone-row {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  padding: 0 var(--frame);
-  height: 28px;
-  font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  color: var(--ink-3);
-}
-.zone-row span {
-  display: grid;
-  place-items: center;
-  border-left: 1px solid var(--hatch);
-}
-.zone-row span:first-child {
-  border-left: 0;
 }
 
 .frame {
@@ -236,20 +219,6 @@ h3 {
   padding-top: 1px;
   background: linear-gradient(var(--rule), var(--rule)) left top / var(--draw)
     1px no-repeat;
-}
-
-.zone-mark {
-  position: absolute;
-  top: 0;
-  left: calc(-1 * var(--m) - var(--frame));
-  width: var(--m);
-  padding-top: 14px;
-  text-align: center;
-  font-family: var(--font-mono), monospace;
-  font-size: 12px;
-  color: var(--ink-3);
-  background: linear-gradient(var(--hatch), var(--hatch)) left top /
-    var(--draw) 1px no-repeat;
 }
 
 /* Ruled grids: 1px gaps over a rule-coloured stroke read as hairlines. The
@@ -1181,19 +1150,12 @@ h3 {
 @media (max-width: 760px) {
   :root {
     --m: 16px;
+    --m-y: 18px;
     --pad: 18px;
     --strip-h: 54px;
   }
   body {
     font-size: 16px;
-  }
-  .zone-row {
-    height: 18px;
-    font-size: 9px;
-  }
-  .zone-mark {
-    font-size: 10px;
-    padding-top: 10px;
   }
 
   .strip {
@@ -1420,7 +1382,6 @@ html[data-plot] :is(
     .frame,
     .strip,
     .zone,
-    .zone-mark,
     .hero,
     .hero-views,
     .title-block,
@@ -1555,9 +1516,6 @@ html[data-plot] .tb-email > * {
 }
 
 /* ── Timing: each later zone, counted from when it enters ── */
-html[data-plot] .zone-mark {
-  --d: 0ms;
-}
 html[data-plot] :is(.view-title h2, .committee-head h2) {
   --d: 150ms;
 }

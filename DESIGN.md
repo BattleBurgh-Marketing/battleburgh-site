@@ -167,7 +167,7 @@ components:
 
 **Creative North Star: "The Drawing Sheet"**
 
-The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a margin that carries zone references: column numbers 1 to 8 along the top and bottom edge, zone letters A to F down the left edge, one letter per section. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block: the society name, its purpose, the channel cells and the email cell.
+The whole society is one general-arrangement engineering drawing. A 2px ink frame sits inside a plain margin. Inside the frame, every region is a ruled view: hairline-divided cells on drafting film, headed by a condensed capital title, a leader line and a circled balloon letter. The page ends where a drawing ends, in a title block: the society name, its purpose, the channel cells and the email cell.
 
 Density is that of a working drawing: many small labelled fields, big uppercase view titles, and real build photos plotted into traced frames. Colour is almost entirely ink on film. Two accent inks do the coding work: blue for the control/Unibot programme, red for the fighting bots, their join actions and every email action. Nothing is lifted, rounded or glowing; depth comes only from ruling and the 2px frame. The world rejects the dark neon combat-robot hero and the full-bleed-photo-under-headline society template.
 
@@ -175,10 +175,10 @@ All copy, links, photos and committee entries come from one file, `content/site.
 
 **Key Characteristics:**
 - Light drafting-film ground with near-black ink (plus a chalk-on-graphite Night sheet and a seasonal Hallowe'en sheet, cycled from the strip toggle); one 2px frame, everything else 1px hairlines.
-- An 8-column zone grid that the margin numbers literally label.
-- Zone letters A–F in the left margin; balloon letters on view titles match the zone they head.
+- An 8-column grid inside the frame; the margin carries no rulers or zone letters.
+- Balloon letters on view titles name each view.
 - Blue codes Unibot/control; red codes fighting bots and the email action; ink carries the committee application.
-- Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for zone markers, specs and captions.
+- Barlow Condensed uppercase for every title and action, Barlow for reading, Azeret Mono for specs and captions.
 - Square corners on every rectangle; circles only for balloons and leader terminals.
 - One signature motion, the plot: every rule is drawn left to right, then each view's contents ink in, then its coloured actions sweep in. The first viewport plots on load; each later zone plots once as it enters.
 
@@ -269,7 +269,7 @@ Candle-bone ink on midnight aubergine. Pumpkin takes over Plotter Red's coding j
 - **Lead** (400, 20px, 1.45, max 46ch): the summary paragraph opening each bot zone; 18px on phones.
 - **Body** (400, 17px, 1.55): reading copy; 16px on phones. Purpose paragraph capped at 62ch.
 - **Label** (Azeret Mono 400, 11.5px, 0.06em, uppercase, ink-2): figure captions, the strip's tagline, the academic year, the footer strip.
-- **Spec** (Azeret Mono 400, 12–13px, 0.04em, uppercase): specs beside view titles and in view links. Zone markers use the mono at 11–12px in ink-3.
+- **Spec** (Azeret Mono 400, 12–13px, 0.04em, uppercase): specs beside view titles and in view links.
 
 ### Named Rules
 **The Lettered Caps Rule.** Every h1–h3, nav item, button and field label is uppercase Barlow Condensed. Sentence-case is for Barlow reading copy only.
@@ -278,7 +278,7 @@ Candle-bone ink on midnight aubergine. Pumpkin takes over Plotter Red's coding j
 
 ## Layout
 
-The sheet is centred at a 1680px maximum with a 40px margin (16px on phones) that holds the zone markers. A row of eight numbered columns sits above and below the frame; the 8-column grid inside the frame matches it, so the hero, title block, bot bodies and footer all span columns by those numbers.
+The sheet is centred at a 1680px maximum with a 40px side margin and 28px above and below (16px and 18px on phones). An 8-column grid inside the frame governs the layout: the hero, title block, bot bodies and footer all span columns by those numbers.
 
 Ruled grids are the core layout device: a grid with a 1px gap over a rule-coloured background, whose children are film-coloured cells, so the gaps read as hairlines. Cell padding is 28px (`pad`, 18px on phones), photo groups gap 20px, team cells pad 24px.
 
@@ -308,7 +308,7 @@ Every rectangle has square corners: cells, buttons, chips, photo frames, the ema
 
 ### The Plot (entrance motion)
 The sheet draws itself like a pen plotter. Three passes, always left to right, on `cubic-bezier(0.16, 1, 0.3, 1)`:
-1. **Rules.** The 2px frame (top and bottom edges across, sides down, 1600ms), the strip's bottom rule, each zone's top rule and margin tick, every ruled grid's hairlines (a rule-coloured stroke widening behind the 1px gaps, 900–1000ms), field-list rows and footer link underlines one after another.
+1. **Rules.** The 2px frame (top and bottom edges across, sides down, 1600ms), the strip's bottom rule, each zone's top rule, every ruled grid's hairlines (a rule-coloured stroke widening behind the 1px gaps, 900–1000ms), field-list rows and footer link underlines one after another.
 2. **Ink.** Each view's contents wipe in with `clip-path: inset(0 100% 0 0)` → `inset(0)` over 700ms, staggered 60–120ms in reading order: view titles, specs, summaries, fields, team columns, committee seats (rulings included).
 3. **Actions.** Coloured fills last: EMAIL US, the email cell (its red is itself a `--draw` stroke, so the sweep never exposes the grid behind it), join buttons, the footer address.
 
@@ -363,7 +363,7 @@ The title block's eighth column: a red cell with an EMAIL US title in the Title 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** draw new sections as a zone: a 1px rule top edge, the next zone letter in the left margin, a View Title whose balloon carries the same letter.
+- **Do** draw new sections as a zone: a 1px rule top edge and a View Title whose balloon carries the next letter.
 - **Do** build cell layouts as ruled grids (1px gap over `rule`, film cells) on the 8-column zone grid.
 - **Do** colour by programme: `tone-blue` for control/Unibot, `tone-red` for fighting bots; email is always red.
 - **Do** render every string, link and photo from `content/site.ts`, and let a `null` photo fall back to the hatched "Photo to add" view.

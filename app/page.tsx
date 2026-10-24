@@ -60,14 +60,6 @@ const views = [
     },
 ] as const;
 
-function ZoneMark({ letter }: { letter: string }) {
-    return (
-        <span className="zone-mark" aria-hidden="true">
-            {letter}
-        </span>
-    );
-}
-
 function PhotoPair({ photos, label }: { photos: Photo[]; label: string }) {
     const shown = photos.length ? photos : [null];
     return (
@@ -92,12 +84,6 @@ export default function Home() {
             <a className="skip" href="#main">
                 Skip to content
             </a>
-
-            <div className="zone-row" aria-hidden="true">
-                {Array.from({ length: 8 }, (_, i) => (
-                    <span key={i}>{i + 1}</span>
-                ))}
-            </div>
 
             <div className="frame">
                 <header className="strip">
@@ -136,7 +122,6 @@ export default function Home() {
                 <main id="main">
                     {/* ── ZONE A · title ─────────────────────────────────────────── */}
                     <section className="zone hero" id="top" aria-labelledby="site-title">
-                        <ZoneMark letter="A" />
                         <div className="hero-photo cell">
                             <svg className="haunt" viewBox="0 0 150 200" aria-hidden="true">
                                 <path className="haunt-web" d="M150 0L150.0 116.0 M150 0L120.0 112.0 M150 0L92.0 100.5 M150 0L68.0 82.0 M150 0L49.5 58.0 M150 0L38.0 30.0 M150 0L34.0 0.0 M150.0 26.0Q147.1 22.2 143.3 25.1Q141.4 20.7 137.0 22.5Q136.4 17.7 131.6 18.4Q132.3 13.6 127.5 13.0Q129.3 8.6 124.9 6.7Q127.8 2.9 124.0 0.0 M150.0 52.0Q144.2 44.3 136.5 50.2Q132.9 41.3 124.0 45.0Q122.8 35.5 113.2 36.8Q114.5 27.2 105.0 26.0Q108.7 17.1 99.8 13.5Q105.7 5.8 98.0 0.0 M150.0 80.0Q141.0 68.2 129.3 77.3Q123.7 63.6 110.0 69.3Q108.1 54.6 93.4 56.6Q95.4 41.9 80.7 40.0Q86.4 26.3 72.7 20.7Q81.8 9.0 70.0 0.0 M150.0 110.0Q137.7 93.8 121.5 106.3Q113.8 87.4 95.0 95.3Q92.4 75.1 72.2 77.8Q74.9 57.6 54.7 55.0Q62.6 36.2 43.7 28.5Q56.2 12.3 40.0 0.0" />
@@ -216,7 +201,6 @@ export default function Home() {
                     <div id="bots">
                         {/* ── ZONE B · Unibot ──────────────────────────────────────── */}
                         <section className="zone bot" aria-labelledby="unibot">
-                            <ZoneMark letter="B" />
                             <ViewTitle
                                 id="unibot"
                                 letter="B"
@@ -244,7 +228,6 @@ export default function Home() {
 
                         {/* ── ZONE C · Antweight ───────────────────────────────────── */}
                         <section className="zone bot mirror" aria-labelledby="antweight">
-                            <ZoneMark letter="C" />
                             <ViewTitle
                                 id="antweight"
                                 letter="C"
@@ -279,7 +262,6 @@ export default function Home() {
 
                         {/* ── ZONE D · Beetleweight ───────────────────────────────── */}
                         <section className="zone beetle" aria-labelledby="beetleweight">
-                            <ZoneMark letter="D" />
                             <ViewTitle
                                 id="beetleweight"
                                 letter="D"
@@ -324,7 +306,6 @@ export default function Home() {
 
                     {/* ── ZONE E · committee ─────────────────────────────────────── */}
                     <section className="zone committee" aria-labelledby="committee">
-                        <ZoneMark letter="E" />
                         <div className="committee-head cell" data-trace>
                             <h2 id="committee">The Committee</h2>
                             <span className="leader" aria-hidden="true" />
@@ -382,7 +363,6 @@ export default function Home() {
 
                 {/* ── ZONE F · footer ──────────────────────────────────────────── */}
                 <footer className="zone footer">
-                    <ZoneMark letter="F" />
                     <div className="footer-call cell">
                         <p>{site.footerCall}</p>
                         <a className="footer-mail" href={mailto(links.email)}>
@@ -424,11 +404,6 @@ export default function Home() {
                 </footer>
             </div>
 
-            <div className="zone-row" aria-hidden="true">
-                {Array.from({ length: 8 }, (_, i) => (
-                    <span key={i}>{i + 1}</span>
-                ))}
-            </div>
             <Trace />
         </div>
     );
