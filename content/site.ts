@@ -209,7 +209,7 @@ export const site = {
     ] as { group: string; people: Person[] }[],
 
     /** Closing line in the footer. */
-    footerCall: "Want to build with us, or back us? One email does it.",
+    footerCall: "If you want to join us or discuss about potential partnership, send emails here!",
 };
 
 export type Site = typeof site;
